@@ -1,0 +1,12 @@
+*.zip
+Gemini_Generated_Image_*.jpg
+foto de.jpg
+avatar-mascota.png
+avatar-ojito.png
+ojito-body.png
+ojito-leg-*.png
+ojito-stand.png
+screen.png
+.system_generated/
+.DS_Store
+Thumbs.db

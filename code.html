@@ -1,0 +1,2706 @@
+<!DOCTYPE html>
+
+<html class="light scroll-smooth" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Visión Saludable — Una nueva forma de ver</title>
+<!-- Google Fonts: Plus Jakarta Sans & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Three.js for 3D custom element support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim as Target Design Theme -->
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-tertiary-fixed": "#001f28",
+          "tertiary": "#00677f",
+          "surface-container-highest": "#d3e4fe",
+          "on-primary": "#ffffff",
+          "secondary-fixed": "#dae2fd",
+          "surface-tint": "#006591",
+          "primary": "#006591",
+          "secondary-container": "#dae2fd",
+          "on-primary-container": "#003751",
+          "on-secondary-fixed": "#131b2e",
+          "tertiary-fixed": "#b6ebff",
+          "outline-variant": "#bec8d2",
+          "surface-dim": "#cbdbf5",
+          "on-tertiary-fixed-variant": "#004e60",
+          "on-error": "#ffffff",
+          "surface-container": "#e5eeff",
+          "primary-fixed": "#c9e6ff",
+          "on-error-container": "#93000a",
+          "on-primary-fixed-variant": "#004c6e",
+          "inverse-primary": "#89ceff",
+          "tertiary-container": "#00a9ce",
+          "on-primary-fixed": "#001e2f",
+          "surface": "#f8f9ff",
+          "secondary-fixed-dim": "#bec6e0",
+          "on-secondary-container": "#5c647a",
+          "surface-variant": "#d3e4fe",
+          "background": "#ffffff",
+          "on-secondary-fixed-variant": "#3f465c",
+          "error-container": "#ffdad6",
+          "error": "#ba1a1a",
+          "on-background": "#0b1c30",
+          "on-secondary": "#ffffff",
+          "outline": "#6e7881",
+          "primary-container": "#0ea5e9",
+          "secondary": "#565e74",
+          "on-tertiary": "#ffffff",
+          "on-tertiary-container": "#003846",
+          "on-surface-variant": "#3e4850",
+          "surface-container-low": "#eff4ff",
+          "inverse-surface": "#213145",
+          "on-surface": "#0b1c30",
+          "primary-fixed-dim": "#89ceff",
+          "inverse-on-surface": "#eaf1ff",
+          "surface-container-lowest": "#ffffff",
+          "surface-container-high": "#dce9ff",
+          "tertiary-fixed-dim": "#47d6ff",
+          "surface-bright": "#f8f9ff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "gutter": "1.5rem",
+          "margin": "2rem",
+          "space-lg": "1.5rem",
+          "space-xl": "2.5rem",
+          "space-md": "1rem",
+          "gutter-sm": "1rem",
+          "space-xs": "0.25rem",
+          "space-sm": "0.5rem",
+          "margin-sm": "1rem"
+        },
+        "fontFamily": {
+          "headline-sm": ["Plus Jakarta Sans"],
+          "headline-lg": ["Plus Jakarta Sans"],
+          "label-sm": ["Plus Jakarta Sans"],
+          "body-lg": ["Inter"],
+          "label-md": ["Plus Jakarta Sans"],
+          "body-sm": ["Inter"],
+          "headline-xl-mobile": ["Plus Jakarta Sans"],
+          "headline-md": ["Plus Jakarta Sans"],
+          "label-lg": ["Plus Jakarta Sans"],
+          "body-md": ["Inter"],
+          "headline-xl": ["Plus Jakarta Sans"],
+          "headline-lg-mobile": ["Plus Jakarta Sans"]
+        },
+        "fontSize": {
+          "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+          "headline-lg": ["36px", { "lineHeight": "44px", "fontWeight": "700" }],
+          "label-sm": ["10px", { "lineHeight": "14px", "fontWeight": "700" }],
+          "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+          "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+          "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+          "headline-xl-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+          "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+          "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+          "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+          "headline-xl": ["48px", { "lineHeight": "56px", "fontWeight": "800" }],
+          "headline-lg-mobile": ["26px", { "lineHeight": "34px", "fontWeight": "700" }]
+        }
+      },
+    },
+  }
+</script>
+<style>
+    /* Clean Light Claymorphism and Glass styles with Emotion Graphics */
+    .clay-card-light {
+      background: #ffffff;
+      box-shadow: 
+        0 20px 40px -15px rgba(14, 165, 233, 0.08),
+        0 10px 25px -5px rgba(15, 23, 42, 0.04),
+        inset 0 1px 2px rgba(255, 255, 255, 0.9),
+        inset 0 -2px 6px rgba(14, 165, 233, 0.04);
+      border: 1px solid rgba(226, 232, 240, 0.85);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+    }
+    .clay-card-light:hover {
+      transform: translateY(-4px) scale(1.008);
+      box-shadow: 
+        0 30px 60px -12px rgba(14, 165, 233, 0.18),
+        0 16px 32px -5px rgba(15, 23, 42, 0.07),
+        inset 0 1px 2px rgba(255, 255, 255, 1);
+      border-color: rgba(14, 165, 233, 0.4);
+    }
+    .clay-pill-light {
+      background: #ffffff;
+      box-shadow: 
+        0 4px 14px rgba(14, 165, 233, 0.1),
+        inset 0 2px 4px rgba(255, 255, 255, 0.8),
+        inset 0 -1px 3px rgba(14, 165, 233, 0.08);
+      border: 1px solid rgba(224, 242, 254, 0.9);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .clay-pill-light:hover {
+      transform: translateY(-1.5px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(14, 165, 233, 0.18);
+    }
+    .glass-light {
+      background: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.08);
+    }
+    .glass-button-light {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(203, 213, 225, 0.8);
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, background 0.25s ease;
+    }
+    .glass-button-light:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 10px 22px rgba(14, 165, 233, 0.18);
+    }
+
+    /* Emotion Graphics Shimmer and Spring Bounce on CTA Buttons */
+    .btn-emotion-glow {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, filter 0.25s ease;
+    }
+    .btn-emotion-glow:hover {
+      transform: translateY(-2.5px) scale(1.03);
+      box-shadow: 0 14px 34px rgba(14, 165, 233, 0.45);
+      filter: brightness(1.06);
+    }
+    .btn-emotion-glow::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 45%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        transparent,
+        rgba(255, 255, 255, 0.45),
+        transparent
+      );
+      transform: rotate(25deg);
+      animation: button-shimmer 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    @keyframes button-shimmer {
+      0% { left: -70%; }
+      30%, 100% { left: 160%; }
+    }
+
+    /* Infinite Seamless Marquee Animation */
+    @keyframes marquee-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    .marquee-parent {
+      display: flex;
+      width: 100%;
+      overflow: hidden;
+      user-select: none;
+      gap: 1.5rem;
+    }
+    .marquee-track {
+      display: flex;
+      flex-shrink: 0;
+      gap: 1.5rem;
+      animation: marquee-scroll 32s linear infinite;
+      will-change: transform;
+    }
+    .marquee-parent:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    /* Physics jiggle scatter glasses */
+    .scattered-glasses {
+      position: absolute;
+      z-index: 30;
+      cursor: grab;
+      user-select: none;
+      filter: drop-shadow(0 6px 14px rgba(14, 165, 233, 0.15));
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
+      touch-action: none;
+    }
+    .scattered-glasses:hover {
+      filter: drop-shadow(0 12px 24px rgba(14, 165, 233, 0.32));
+    }
+
+    /* Gentle floating hero animation */
+    @keyframes gentle-float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .hero-gentle-float {
+      animation: gentle-float 6s ease-in-out infinite;
+    }
+
+    /* ======================================================== */
+    /* OJITO MASCOT: DISNEY/PIXAR STYLE INTERNAL CARTOON PHYSICS */
+    /* ==========================================================================
+       AVATAR INTERACTIVO ANIMADO: "OJITO" - SPRITE & CARTOON PHYSICS ENGINE V4
+       ========================================================================== */
+    /* 1. Container Idle Gentle Floating & Breathing (Waving Pose) */
+    @keyframes mascotIdleFloat {
+      0%, 100% { transform: translateY(0px) scale(1, 1); }
+      50% { transform: translateY(-6px) scale(0.98, 1.02); }
+    }
+    .mascot-idle-breathe {
+      animation: mascotIdleFloat 3s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+
+    /* 2. Whistling Leisurely Walk Bob */
+    @keyframes mascotWalkBob {
+      0%, 100% { transform: translateY(0px) rotate(-3deg); }
+      50% { transform: translateY(-6px) rotate(3deg); }
+    }
+    .mascot-walk-bob {
+      animation: mascotWalkBob 0.38s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+
+    /* 3. Parachute Aerodynamic Sway */
+    @keyframes mascotParachuteSway {
+      0% { transform: rotate(-7deg) translateX(-14px); }
+      50% { transform: rotate(0deg) translateX(0px); }
+      100% { transform: rotate(7deg) translateX(14px); }
+    }
+    .mascot-parachute-sway {
+      transform-origin: top center;
+      animation: mascotParachuteSway 1.6s ease-in-out infinite alternate;
+    }
+
+    /* 4. Elastic Spring Bounce & Squash (Disney / Warner Cartoon Physics) */
+    @keyframes mascotSpringBounce {
+      0% { transform: scale(1.4, 0.6) translateY(14px); }
+      22% { transform: scale(0.82, 1.28) translateY(-48px); }
+      48% { transform: scale(1.18, 0.88) translateY(6px); }
+      72% { transform: scale(0.96, 1.04) translateY(-14px); }
+      88% { transform: scale(1.02, 0.98) translateY(0px); }
+      100% { transform: scale(1, 1) translateY(0px); }
+    }
+    .mascot-spring-bounce {
+      transform-origin: center bottom;
+      animation: mascotSpringBounce 0.75s cubic-bezier(0.28, 0.84, 0.42, 1) forwards;
+    }
+
+    /* 5. Dash & Sprint Leaning */
+    @keyframes mascotSprintBob {
+      0%, 100% { transform: translateY(0px) rotate(-6deg); }
+      50% { transform: translateY(-6px) rotate(5deg); }
+    }
+    .mascot-sprint-lean {
+      animation: mascotSprintBob 0.22s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+
+    /* 6. Car Driving Engine Rumble */
+    @keyframes mascotDriveRumble {
+      0%, 100% { transform: translateY(0px) rotate(-1deg); }
+      50% { transform: translateY(-3px) rotate(1deg); }
+    }
+    .mascot-drive-bob {
+      animation: mascotDriveRumble 0.18s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+
+    /* 7. Wall Climbing Movement */
+    @keyframes mascotWallClimbAnim {
+      0%, 100% { transform: rotate(-90deg) translateY(0px); }
+      50% { transform: rotate(-90deg) translateY(-4px); }
+    }
+    .mascot-wall-climb {
+      animation: mascotWallClimbAnim 0.25s ease-in-out infinite;
+    }
+
+    /* 8. Drag Forcejeo (Struggle) */
+    @keyframes mascotDragStruggle {
+      0%, 100% { transform: rotate(-6deg) scale(1.04); }
+      50% { transform: rotate(6deg) scale(0.96); }
+    }
+    .mascot-is-dragged {
+      animation: mascotDragStruggle 0.16s ease-in-out infinite alternate !important;
+      cursor: grabbing !important;
+    }
+
+    /* 9. Dizzy Mode & Orbiting Stars */
+    @keyframes mascotDizzyWobble {
+      0%, 100% { transform: rotate(-10deg); }
+      50% { transform: rotate(10deg); }
+    }
+    .mascot-is-dizzy {
+      animation: mascotDizzyWobble 0.28s ease-in-out infinite;
+    }
+    @keyframes orbitStars {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.15); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+    .orbit-stars-anim {
+      animation: orbitStars 1.4s linear infinite;
+    }
+
+    /* 10. Sprite Transitions */
+    .mascot-sprite {
+      filter: drop-shadow(0 4px 6px rgba(15, 23, 42, 0.12));
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900 selection:bg-sky-100 selection:text-sky-900 min-h-screen relative overflow-x-hidden font-body-md antialiased">
+<!-- Luminous ambient light glows on white -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute -top-[15%] left-1/2 -translate-x-1/2 w-[1100px] h-[650px] bg-gradient-to-b from-sky-200/40 via-cyan-100/30 to-transparent blur-[120px] rounded-full"></div>
+<div class="absolute top-[35%] -right-48 w-[650px] h-[650px] bg-sky-100/50 blur-[130px] rounded-full"></div>
+<div class="absolute top-[70%] -left-48 w-[700px] h-[700px] bg-cyan-100/40 blur-[140px] rounded-full"></div>
+</div>
+<!-- 1. MODAL: VISOR 3D INTERACTIVO (Se abre únicamente al hacer clic en "Explorar Lente Interactivo") -->
+<div id="visor3DModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-md transition-all duration-300 opacity-0 pointer-events-none" aria-modal="true" role="dialog">
+  <div id="visor3DCard" class="relative w-full max-w-lg clay-card-light rounded-3xl p-5 sm:p-6 glass-light border border-white/95 shadow-[0_25px_60px_-15px_rgba(14,165,233,0.3),0_15px_30px_rgba(15,23,42,0.12)] backdrop-blur-2xl transform transition-all duration-300 scale-95 flex flex-col" onclick="event.stopPropagation()">
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between pb-3.5 mb-3 border-b border-sky-100">
+      <div class="flex items-center gap-2.5">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-sky-500 shadow-[0_0_8px_#0ea5e9]"></span>
+        </span>
+        <h3 class="text-base sm:text-lg font-bold text-slate-900 tracking-tight">Visor 3D Interactivo</h3>
+        <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-200/60 hidden sm:inline-block">Giro 360° Calibrado</span>
+      </div>
+      <button id="closeVisor3DBtn" type="button" onclick="closeVisor3D()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-rose-50 text-slate-500 hover:text-rose-600 flex items-center justify-center transition-colors shadow-xs cursor-pointer" title="Cerrar visor">
+        <span class="material-symbols-outlined text-[19px]">close</span>
+      </button>
+    </div>
+
+    <!-- Interactive 3D Canvas Container -->
+    <div class="w-full h-64 sm:h-80 rounded-2xl bg-gradient-to-b from-sky-50/70 via-white to-sky-50/40 border border-sky-100 relative overflow-hidden flex items-center justify-center cursor-grab active:cursor-grabbing">
+      <!-- ThreeJS Web Component container with ANIMATION_11 -->
+      <div class="w-full h-full bg-transparent block" style="display:block;">
+        <script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+        <div id="threejs-container-ANIMATION_11" style="width:100%;height:100%"></div>
+        <script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_11');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  const width = container.clientWidth || 450;
+  const height = container.clientHeight || 320;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+  camera.position.set(0, 0, 8);
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  container.appendChild(renderer.domElement);
+
+  const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+  scene.add(ambientLight);
+
+  const dirLight1 = new THREE.DirectionalLight(0x00d2ff, 2.5);
+  dirLight1.position.set(5, 5, 6);
+  scene.add(dirLight1);
+
+  const dirLight2 = new THREE.DirectionalLight(0x0ea5e9, 1.8);
+  dirLight2.position.set(-5, -3, 3);
+  scene.add(dirLight2);
+
+  // Eyeglasses Group
+  const glassesGroup = new THREE.Group();
+
+  // Materials
+  const frameMaterial = new THREE.MeshStandardMaterial({
+    color: 0x0f172a,
+    roughness: 0.25,
+    metalness: 0.65
+  });
+
+  const lensMaterial = new THREE.MeshPhysicalMaterial({
+    color: 0xa5f3fc,
+    transparent: true,
+    opacity: 0.45,
+    roughness: 0.05,
+    transmission: 0.9,
+    ior: 1.5,
+    thickness: 0.2,
+    reflectivity: 0.9
+  });
+
+  const rimRadius = 1.05;
+  const rimTube = 0.08;
+  const eyeDistance = 1.35;
+
+  // Left Rim
+  const leftRimGeo = new THREE.TorusGeometry(rimRadius, rimTube, 24, 64);
+  const leftRim = new THREE.Mesh(leftRimGeo, frameMaterial);
+  leftRim.position.x = -eyeDistance;
+  glassesGroup.add(leftRim);
+
+  // Left Lens
+  const lensGeo = new THREE.CylinderGeometry(rimRadius * 0.98, rimRadius * 0.98, 0.04, 32);
+  lensGeo.rotateX(Math.PI / 2);
+  const leftLens = new THREE.Mesh(lensGeo, lensMaterial);
+  leftLens.position.x = -eyeDistance;
+  glassesGroup.add(leftLens);
+
+  // Right Rim
+  const rightRimGeo = new THREE.TorusGeometry(rimRadius, rimTube, 24, 64);
+  const rightRim = new THREE.Mesh(rightRimGeo, frameMaterial);
+  rightRim.position.x = eyeDistance;
+  glassesGroup.add(rightRim);
+
+  // Right Lens
+  const rightLens = new THREE.Mesh(lensGeo, lensMaterial);
+  rightLens.position.x = eyeDistance;
+  glassesGroup.add(rightLens);
+
+  // Bridge
+  const bridgeGeo = new THREE.CylinderGeometry(0.06, 0.06, 0.8, 16);
+  bridgeGeo.rotateZ(Math.PI / 2);
+  const bridge = new THREE.Mesh(bridgeGeo, frameMaterial);
+  bridge.position.set(0, 0.35, 0.05);
+  glassesGroup.add(bridge);
+
+  // Temples / Arms
+  const templeGeo = new THREE.CylinderGeometry(0.05, 0.05, 2.6, 16);
+  templeGeo.rotateX(Math.PI / 2);
+
+  const leftTemple = new THREE.Mesh(templeGeo, frameMaterial);
+  leftTemple.position.set(-eyeDistance - rimRadius + 0.05, 0.1, -1.3);
+  leftTemple.rotation.y = 0.08;
+  glassesGroup.add(leftTemple);
+
+  const rightTemple = new THREE.Mesh(templeGeo, frameMaterial);
+  rightTemple.position.set(eyeDistance + rimRadius - 0.05, 0.1, -1.3);
+  rightTemple.rotation.y = -0.08;
+  glassesGroup.add(rightTemple);
+
+  scene.add(glassesGroup);
+
+  // Interactive Drag Rotation
+  let isDragging = false;
+  let previousMousePosition = { x: 0, y: 0 };
+  let targetRotX = 0.15;
+  let targetRotY = 0.4;
+  let autoRotate = true;
+
+  const dom = renderer.domElement;
+  dom.style.cursor = 'grab';
+
+  dom.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    autoRotate = false;
+    dom.style.cursor = 'grabbing';
+    previousMousePosition = { x: e.clientX, y: e.clientY };
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (isDragging) {
+      isDragging = false;
+      dom.style.cursor = 'grab';
+      setTimeout(() => { autoRotate = true; }, 3000);
+    }
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const deltaX = e.clientX - previousMousePosition.x;
+    const deltaY = e.clientY - previousMousePosition.y;
+    targetRotY += deltaX * 0.012;
+    targetRotX += deltaY * 0.012;
+    targetRotX = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, targetRotX));
+    previousMousePosition = { x: e.clientX, y: e.clientY };
+  });
+
+  // Touch support
+  dom.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      isDragging = true;
+      autoRotate = false;
+      previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }
+  }, { passive: true });
+
+  window.addEventListener('touchend', () => {
+    isDragging = false;
+    setTimeout(() => { autoRotate = true; }, 3000);
+  });
+
+  window.addEventListener('touchmove', (e) => {
+    if (!isDragging || e.touches.length !== 1) return;
+    const deltaX = e.touches[0].clientX - previousMousePosition.x;
+    const deltaY = e.touches[0].clientY - previousMousePosition.y;
+    targetRotY += deltaX * 0.012;
+    targetRotX += deltaY * 0.012;
+    previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  }, { passive: true });
+
+  // Animation Loop
+  let clock = new THREE.Clock();
+
+  function animate() {
+    requestAnimationFrame(animate);
+    const elapsedTime = clock.getElapsedTime();
+
+    if (autoRotate) {
+      targetRotY += 0.01;
+    }
+    
+    // Floating levitation
+    glassesGroup.position.y = Math.sin(elapsedTime * 2.0) * 0.15;
+    
+    // Smooth lerp rotation
+    glassesGroup.rotation.y += (targetRotY - glassesGroup.rotation.y) * 0.08;
+    glassesGroup.rotation.x += (targetRotX - glassesGroup.rotation.x) * 0.08;
+
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener('resize', () => {
+    const newWidth = container.clientWidth || 450;
+    const newHeight = container.clientHeight || 320;
+    if (newWidth > 0 && newHeight > 0) {
+      camera.aspect = newWidth / newHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(newWidth, newHeight);
+    }
+  });
+
+})();
+        </script>
+      </div>
+
+      <!-- Hint overlay on hover -->
+      <div class="absolute bottom-2.5 inset-x-3 text-center pointer-events-none">
+        <span class="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[11px] font-bold text-slate-700 shadow-sm border border-slate-200/80 inline-flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[13px] text-sky-600">touch_app</span> Haz clic y arrastra para rotar 360°
+        </span>
+      </div>
+    </div>
+
+    <!-- Modal Footer Controls -->
+    <div class="mt-4 pt-1 flex items-center justify-between text-xs text-slate-500">
+      <span class="flex items-center gap-1.5 font-medium">
+        <span class="material-symbols-outlined text-sm text-sky-600">check_circle</span>
+        <span>Montura ergonómica ultraligera</span>
+      </span>
+      <button type="button" onclick="closeVisor3D()" class="px-3.5 py-1.5 rounded-full font-semibold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 transition-colors cursor-pointer">
+        Cerrar
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal & Menu Scripts -->
+<script>
+  window.openVisor3D = function() {
+    const modal = document.getElementById('visor3DModal');
+    const card = document.getElementById('visor3DCard');
+    if (!modal) return;
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.classList.add('opacity-100', 'pointer-events-auto');
+    if (card) {
+      card.classList.remove('scale-95');
+      card.classList.add('scale-100');
+    }
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 60);
+  };
+
+  window.closeVisor3D = function() {
+    const modal = document.getElementById('visor3DModal');
+    const card = document.getElementById('visor3DCard');
+    if (!modal) return;
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modal.classList.remove('opacity-100', 'pointer-events-auto');
+    if (card) {
+      card.classList.add('scale-95');
+      card.classList.remove('scale-100');
+    }
+    document.body.style.overflow = '';
+  };
+
+  window.toggleMobileMenu = function() {
+    const menu = document.getElementById('mobileMenuDropdown');
+    const icon = document.getElementById('mobileMenuIcon');
+    if (!menu) return;
+    const isHidden = menu.classList.contains('hidden');
+    if (isHidden) {
+      menu.classList.remove('hidden');
+      if (icon) icon.textContent = 'close';
+    } else {
+      menu.classList.add('hidden');
+      if (icon) icon.textContent = 'menu';
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('visor3DModal');
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          window.closeVisor3D();
+        }
+      });
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        window.closeVisor3D();
+      }
+    });
+  });
+</script>
+
+<!-- TOP NAVIGATION BAR (Clean Light Floating Glass) -->
+<header class="fixed top-4 left-1/2 -translate-x-1/2 w-[94%] max-w-6xl z-50">
+  <nav class="rounded-full glass-light border border-white/80 shadow-[0_12px_36px_-10px_rgba(15,23,42,0.08),0_0_20px_rgba(14,165,233,0.08)] px-4 sm:px-6 py-2.5 flex justify-between items-center w-full">
+    <!-- Brand Logo / Identity -->
+    <a class="flex items-center gap-2.5 group active:scale-95 transition-transform duration-150 shrink-0" href="#inicio">
+      <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white p-0.5 border border-sky-200 flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform shrink-0">
+        <img alt="Visión Saludable Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPr9hbTJizVDsgtXPnGGMSyY91zZ6-TO6oi2wEZKfFaQZIWPOpTCsol54asnt1I6-xjovtdQ8vV48XyTAIeLvGw_WvArxCThaxbjCa0y-QxFkUCLocoKzCsgJJnX8ZzmFOneOph5y1fF-QK-GEP0CE7rou223-2SDL5gEpvOn7P0jW1PSa9TAKmOGzbVymfHjAKuf03JSPeJVELWcga4uwWrVbVcwWLA0OJIGZEjCeH8De3awls7IHoQ"/>
+      </div>
+      <span class="text-slate-900 font-headline-sm font-extrabold text-[17px] sm:text-[19px] tracking-tight whitespace-nowrap">Visión Saludable</span>
+    </a>
+
+    <!-- Desktop Nav Items: Ordenados, limpios y sin quiebres de línea -->
+    <div class="hidden md:flex items-center gap-1 lg:gap-2">
+      <a class="text-slate-600 hover:text-sky-600 font-semibold text-[13px] lg:text-[14px] whitespace-nowrap px-3 py-1.5 rounded-full hover:bg-sky-50 transition-colors" href="#tecnologia">Tecnología</a>
+      <a class="text-slate-600 hover:text-sky-600 font-semibold text-[13px] lg:text-[14px] whitespace-nowrap px-3 py-1.5 rounded-full hover:bg-sky-50 transition-colors" href="#lentes">Lentes</a>
+      <a class="text-slate-600 hover:text-sky-600 font-semibold text-[13px] lg:text-[14px] whitespace-nowrap px-3 py-1.5 rounded-full hover:bg-sky-50 transition-colors" href="#asesores">Especialistas</a>
+      <a class="text-slate-600 hover:text-sky-600 font-semibold text-[13px] lg:text-[14px] whitespace-nowrap px-3 py-1.5 rounded-full hover:bg-sky-50 transition-colors" href="#faq">Preguntas Frecuentes</a>
+      <a class="text-slate-600 hover:text-sky-600 font-semibold text-[13px] lg:text-[14px] whitespace-nowrap px-3 py-1.5 rounded-full hover:bg-sky-50 transition-colors" href="#testimonios">Testimonios</a>
+    </div>
+
+    <!-- Trailing Action Buttons -->
+    <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+      <a class="hidden xl:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold text-slate-700 hover:text-slate-900 glass-button-light hover:bg-slate-50 shadow-xs whitespace-nowrap" href="#lentes">
+        <span class="material-symbols-outlined text-[16px] text-sky-600">visibility</span>
+        <span>Ver Catálogo</span>
+      </a>
+      <a class="btn-emotion-glow inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold text-white bg-gradient-to-r from-sky-500 to-cyan-500 shadow-[0_4px_16px_rgba(14,165,233,0.35)] whitespace-nowrap" href="https://wa.me/50241961630?text=Hola%20Visi%C3%B3n%20Saludable,%20quisiera%20agendar%20mi%20examen%20visual%20gratuito." target="_blank">
+        <span class="material-symbols-outlined text-[16px]">chat</span>
+        <span>Agendar Examen (WhatsApp)</span>
+      </a>
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" type="button" onclick="toggleMobileMenu()" class="md:hidden w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors" aria-label="Abrir menú">
+        <span class="material-symbols-outlined text-[20px]" id="mobileMenuIcon">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Dropdown -->
+  <div id="mobileMenuDropdown" class="hidden md:hidden mt-2 p-3 bg-white/95 backdrop-blur-2xl rounded-2xl border border-sky-100 shadow-xl flex flex-col gap-1 transition-all">
+    <a class="px-3 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-600 transition-colors" href="#tecnologia" onclick="toggleMobileMenu()">Tecnología</a>
+    <a class="px-3 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-600 transition-colors" href="#lentes" onclick="toggleMobileMenu()">Lentes</a>
+    <a class="px-3 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-600 transition-colors" href="#asesores" onclick="toggleMobileMenu()">Especialistas</a>
+    <a class="px-3 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-600 transition-colors" href="#faq" onclick="toggleMobileMenu()">Preguntas Frecuentes</a>
+    <a class="px-3 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-600 transition-colors" href="#testimonios" onclick="toggleMobileMenu()">Testimonios</a>
+    <div class="pt-2 border-t border-slate-100 mt-1 flex flex-col gap-2">
+      <button type="button" onclick="toggleMobileMenu(); openVisor3D();" class="w-full py-2.5 rounded-xl text-xs font-bold text-sky-700 bg-sky-50 hover:bg-sky-100 transition-colors flex items-center justify-center gap-1.5 cursor-pointer">
+        <span class="material-symbols-outlined text-[16px]">view_in_ar</span>
+        Explorar Lente Interactivo 3D
+      </button>
+    </div>
+  </div>
+</header>
+<main class="relative z-10 pt-28 md:pt-36">
+<!-- HERO SECTION: Clean Light Framer-style with Static / Subtly Floating Eyeglasses Centerpiece -->
+<section class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 flex flex-col items-center" id="inicio">
+<!-- Top Pill Badge with Emotion Pulse -->
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full clay-pill-light border border-sky-100 mb-6 shadow-sm">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-sky-500 shadow-[0_0_10px_#0ea5e9]"></span>
+</span>
+<span class="text-xs font-bold text-sky-700 tracking-wide">Nueva Generación de Óptica Digital &amp; Calibración 3D</span>
+</div>
+<!-- Hero Typography (Framer crisp style on bright white) -->
+<div class="text-center max-w-4xl mx-auto space-y-4">
+<h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-950 tracking-tight leading-[1.12]">
+        Una nueva forma de ver. <br class="hidden sm:inline"/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-cyan-500 to-blue-700">Claridad absoluta para tus ojos.</span>
+</h1>
+<p class="text-slate-600 text-base md:text-lg max-w-2xl mx-auto font-normal leading-relaxed">
+        Descubre lentes de alta precisión tallados digitalmente con bio-filtros de última generación. Corregimos aberraciones ópticas para brindarte agudeza visual pura en cualquier pantalla y entorno.
+      </p>
+</div>
+<!-- CTA Buttons with Light Emotion Graphics Shimmer & Bounce -->
+<div class="mt-8 flex flex-wrap justify-center items-center gap-4">
+<a class="btn-emotion-glow group px-8 py-3.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-sky-500 via-cyan-500 to-sky-600 shadow-[0_10px_25px_rgba(14,165,233,0.35)] flex items-center gap-2.5" href="https://wa.me/50241961630?text=Hola%20Visi%C3%B3n%20Saludable,%20quisiera%20agendar%20mi%20examen%20visual%20gratuito." target="_blank">
+<span class="material-symbols-outlined text-[19px]">chat</span>
+<span class="">Agendar Examen Gratis (WhatsApp)</span>
+<span class="material-symbols-outlined text-[17px] group-hover:translate-x-1.5 transition-transform duration-200">arrow_forward</span>
+</a>
+<button type="button" onclick="openVisor3D()" class="px-7 py-3.5 rounded-full text-sm font-semibold text-slate-800 glass-button-light hover:bg-slate-50 shadow-sm flex items-center gap-2 cursor-pointer transition-all active:scale-95">
+<span class="material-symbols-outlined text-[19px] text-sky-600">view_in_ar</span>
+<span class="">Explorar Lente Interactivo</span>
+</button>
+</div>
+<!-- HERO PRODUCT SHOWCASE: Sin mouse-tilt / efecto 3D anterior de tracking (estático con sutil flotación suave) -->
+<div class="mt-14 w-full max-w-5xl" id="tecnologia">
+<div class="relative rounded-3xl bg-white p-3 sm:p-6 border border-slate-200/80 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.08),0_10px_20px_-5px_rgba(14,165,233,0.06)] overflow-hidden" id="heroInteractiveBox">
+<!-- Micro Device Header Bar -->
+<div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4 px-2">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-rose-400"></span>
+<span class="w-3 h-3 rounded-full bg-amber-400"></span>
+<span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+<span class="ml-3 text-[11px] font-mono font-medium text-slate-500 uppercase tracking-wider">Calibración Óptica HD</span>
+</div>
+<div class="hidden sm:flex items-center gap-1.5 text-xs font-semibold text-sky-600">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span class="">Modo Refracción Activo</span>
+</div>
+</div>
+<!-- Central Stage: Render Image Estático https://lh3.googleusercontent.com/aida/AEtjO1WUXNaV7F5BUNTYSgOniTZ0_9Q7FIixpKZTJsprjBuCS8XXpPk1zgSQZS1_bWPziJ82JPgF37HoD8QaTHUb33ECCw2zE8KF_qWYv_fNpZKl7gkC3y9o-9hwiCCl_OikJ3GLWZsnfWVTqZ8KOAsyBqVxp-ILhf3HaGPcZRhwmPgC0GhhbolnuVHdgacJ0HBOZYde1azBA4ML2nzIXfbUogumD6MFKt9grLXLNFikm5V-TQ -->
+<div class="relative w-full rounded-2xl overflow-hidden bg-slate-50 border border-slate-100 flex items-center justify-center min-h-[380px] sm:min-h-[460px] md:min-h-[520px]">
+<!-- Background Subtle Grid -->
+<div class="absolute inset-0 bg-[radial-gradient(#0ea5e9_0.75px,transparent_0.75px)] [background-size:24px_24px] opacity-20 pointer-events-none"></div>
+<!-- Main 3D Model Render Image con sutil flotación fija natural (sin mouse-tracking) -->
+<img alt="https://lh3.googleusercontent.com/aida/AEtjO1WUXNaV7F5BUNTYSgOniTZ0_9Q7FIixpKZTJsprjBuCS8XXpPk1zgSQZS1_bWPziJ82JPgF37HoD8QaTHUb33ECCw2zE8KF_qWYv_fNpZKl7gkC3y9o-9hwiCCl_OikJ3GLWZsnfWVTqZ8KOAsyBqVxp-ILhf3HaGPcZRhwmPgC0GhhbolnuVHdgacJ0HBOZYde1azBA4ML2nzIXfbUogumD6MFKt9grLXLNFikm5V-TQ" class="w-full h-full object-contain max-h-[540px] select-none hero-gentle-float pointer-events-none" id="heroEyeglassesImg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo_NLNbG1SsA_A6gwjIKwH7JjWbXWURg5DFXN_Dc4gfZ-dWEnspraVpn_2SX7aHyRohCeQ9Ab8rADqDB4T08XWZ8XAs0nX3wYjSsTyZg4DqwWgmMKRob47TY7p9MlkDeC9J9fnP6sfBXnAK5jvz3jbtCY2M8Fx14PaJPzmvMwDvw2B6xQmsby2MHmiA4iHwRfTHCGmAiLXgmQa6_GCofp3NufNDSu7ViDPfgBnRCz-"/>
+<!-- Optical Focus Reticle fijo y estético sobre la lente central -->
+<div class="absolute left-1/2 top-1/2 -translate-x-[55%] -translate-y-[45%] pointer-events-none flex items-center justify-center" id="focalReticle">
+<!-- Calibrated Optical Circle Indicator -->
+<div class="w-48 sm:w-60 md:w-72 h-48 sm:h-60 md:h-72 rounded-full border border-sky-400/40 shadow-[0_0_30px_rgba(14,165,233,0.15)] flex items-center justify-center">
+<div class="w-36 sm:w-44 md:w-52 h-36 sm:h-44 md:h-52 rounded-full border border-dashed border-sky-500/50 animate-spin" style="animation-duration: 35s;"></div>
+<!-- Crosshair subtle indicators -->
+<div class="absolute w-full h-[1px] bg-sky-400/25"></div>
+<div class="absolute h-full w-[1px] bg-sky-400/25"></div>
+</div>
+</div>
+<!-- Floating Interactive Clay Badges (Clean White Theme) -->
+<div class="absolute top-6 left-4 sm:left-8 z-20 clay-pill-light px-4 py-2 rounded-full border border-sky-200/90 flex items-center gap-2 backdrop-blur-md shadow-sm">
+<span class="material-symbols-outlined text-sky-600 text-[18px]">verified</span>
+<span class="text-xs font-bold text-slate-800">Filtro Azul UV400 Activo</span>
+</div>
+<div class="absolute bottom-6 right-4 sm:right-8 z-20 clay-pill-light px-4 py-2 rounded-full border border-cyan-200/90 flex items-center gap-2 backdrop-blur-md shadow-sm">
+<span class="material-symbols-outlined text-cyan-600 text-[18px]">shutter_speed</span>
+<span class="text-xs font-bold text-slate-800">100% Antirreflejo HD Calibrado</span>
+</div>
+<!-- Emotion Status Pill at Bottom -->
+<div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 px-3.5 py-1 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 shadow-sm text-[11px] font-medium text-slate-500 flex items-center gap-1.5 pointer-events-none">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="">Calibración Óptica de Alta Precisión Visión Saludable</span>
+</div>
+</div>
+<!-- Bottom Metric Ribbons on Clean White -->
+<div class="mt-5 grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-slate-100 text-center">
+<div class="p-2">
+<p class="text-2xl font-extrabold text-sky-600 tracking-tight">99.8%</p>
+<p class="text-xs font-medium text-slate-500 mt-0.5">Transmisión Lumínica</p>
+</div>
+<div class="p-2">
+<p class="text-2xl font-extrabold text-cyan-600 tracking-tight">0.00%</p>
+<p class="text-xs font-medium text-slate-500 mt-0.5">Aberración Esférica</p>
+</div>
+<div class="p-2">
+<p class="text-2xl font-extrabold text-slate-800 tracking-tight">+18.00</p>
+<p class="text-xs font-medium text-slate-500 mt-0.5">Rango de Dioptrías</p>
+</div>
+<div class="p-2">
+<p class="text-2xl font-extrabold text-sky-500 tracking-tight">1 Año</p>
+<p class="text-xs font-medium text-slate-500 mt-0.5">Garantía Certificada</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: CARACTERÍSTICAS Y CRISTALES (BENTO GRID CON MICRO-LENTES TIRADOS Y FÍSICA) -->
+<section class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" id="lentes">
+<div class="text-center max-w-3xl mx-auto mb-14">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full clay-pill-light text-xs font-bold text-sky-700 mb-3 border border-sky-100">
+<span class="material-symbols-outlined text-[16px] text-sky-600">lens</span>
+<span class="">Tratamientos Ópticos de Vanguardia</span>
+</div>
+<h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Cristales esculpidos para cada estilo de vida</h2>
+<p class="text-slate-600 text-base mt-3 leading-relaxed">Combinamos materiales orgánicos ultraligeros con nano-recubrimientos que protegen tu salud ocular diaria.</p>
+</div>
+<!-- Bento Grid (Clean White Claymorphism Cards) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+<!-- 3. LENTE TIRADO #1 (Sobre esquina Bento 1) -->
+<div class="scattered-glasses -top-5 -right-3 w-16 h-10" data-scatter="1" title="¡Toca o pasa el ratón para empujarme!">
+<svg class="w-full h-full text-sky-600/90 hover:text-sky-500" fill="none" viewbox="0 0 64 36">
+<rect fill="#e0f2fe" fill-opacity="0.6" height="22" rx="10" stroke="currentColor" stroke-width="3" width="24" x="2" y="6"></rect>
+<rect fill="#e0f2fe" fill-opacity="0.6" height="22" rx="10" stroke="currentColor" stroke-width="3" width="24" x="38" y="6"></rect>
+<path d="M26 14 Q32 10 38 14" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
+<path d="M2 12 L-4 10" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M62 12 L68 10" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<line opacity="0.8" stroke="white" stroke-linecap="round" stroke-width="2" x1="8" x2="16" y1="12" y2="24"></line>
+<line opacity="0.8" stroke="white" stroke-linecap="round" stroke-width="2" x1="44" x2="52" y1="12" y2="24"></line>
+</svg>
+</div>
+<!-- Bento 1: Filtro Azul (Grande) -->
+<div class="md:col-span-2 clay-card-light rounded-3xl p-8 relative overflow-hidden group">
+<div class="absolute -right-10 -bottom-10 w-64 h-64 bg-sky-100/60 rounded-full blur-3xl pointer-events-none group-hover:scale-110 transition-transform"></div>
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+<div class="w-14 h-14 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-600 shadow-sm group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-[32px]">laptop_chromebook</span>
+</div>
+<span class="px-3.5 py-1 rounded-full bg-sky-100/80 text-sky-800 text-xs font-bold border border-sky-200">Recomendado para pantallas</span>
+</div>
+<h3 class="text-2xl font-bold text-slate-900 mb-3">Escudo Blue-Defense UV400</h3>
+<p class="text-slate-600 text-sm md:text-base max-w-xl mb-6 leading-relaxed">
+          Bloquea selectivamente el 99.4% de la luz azul nociva de computadoras, smartphones y luces LED, preservando la fidelidad cromática natural y reduciendo de inmediato la fatiga visual nocturna y el insomnio.
+        </p>
+<div class="flex flex-wrap gap-2.5">
+<span class="px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-xs font-medium text-slate-700">Sin tono amarillo molesto</span>
+<span class="px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-xs font-medium text-slate-700">Reduce ojo seco</span>
+<span class="px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-xs font-medium text-slate-700">Filtro HEV 420nm</span>
+</div>
+</div>
+<!-- Bento 2: Lentes Progresivos Digitales -->
+<div class="clay-card-light rounded-3xl p-8 relative overflow-hidden group">
+<div class="w-14 h-14 rounded-2xl bg-cyan-50 border border-cyan-100 flex items-center justify-center text-cyan-600 shadow-sm mb-6 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-[32px]">swap_driving_apps_wheel</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 mb-3">Progresivos Free-Form</h3>
+<p class="text-slate-600 text-sm leading-relaxed mb-6">
+          Transición fluida de cerca, intermedia y lejos sin líneas visibles y sin mareos de adaptación gracias a nuestro mapeo facial 3D.
+        </p>
+<div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-between">
+<span class="text-xs font-medium text-slate-500">Campo visual expandido</span>
+<span class="text-sm font-bold text-cyan-600">+45%</span>
+</div>
+</div>
+<!-- Bento 3: Fotocromáticos Inteligentes -->
+<div class="clay-card-light rounded-3xl p-8 relative overflow-hidden group">
+<!-- 3. LENTE TIRADO #2 (Sobre esquina Bento 3) -->
+<div class="scattered-glasses -top-3 -left-3 w-14 h-9" data-scatter="2" title="¡Micro-lente decorativo interactivo!">
+<svg class="w-full h-full text-amber-500/90 hover:text-amber-400" fill="none" viewbox="0 0 64 36">
+<ellipse cx="14" cy="18" fill="#fef3c7" fill-opacity="0.6" rx="12" ry="11" stroke="currentColor" stroke-width="3"></ellipse>
+<ellipse cx="50" cy="18" fill="#fef3c7" fill-opacity="0.6" rx="12" ry="11" stroke="currentColor" stroke-width="3"></ellipse>
+<path d="M26 17 C32 13 32 13 38 17" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
+<path d="M2 16 L-3 12" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M62 16 L67 12" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<line opacity="0.8" stroke="white" stroke-linecap="round" stroke-width="2" x1="8" x2="16" y1="12" y2="24"></line>
+</svg>
+</div>
+<div class="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600 shadow-sm mb-6 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-[32px]">wb_sunny</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 mb-3">FotoSensibles Adaptativos</h3>
+<p class="text-slate-600 text-sm leading-relaxed mb-5">
+          Completamente transparentes en interiores y oscurecimiento rápido en exteriores según la radiación solar.
+        </p>
+<div class="flex items-center gap-2 text-xs font-semibold text-amber-700">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span class="">Oscurecimiento en menos de 25 segundos</span>
+</div>
+</div>
+<!-- Bento 4: Antirreflejo Hidrofóbico (Doble Columna) -->
+<div class="md:col-span-2 clay-card-light rounded-3xl p-8 relative overflow-hidden group">
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+<div class="w-14 h-14 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-600 shadow-sm group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-[32px]">water_drop</span>
+</div>
+<span class="px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold border border-slate-200">Tratamiento Oleofóbico Super-Clean</span>
+</div>
+<h3 class="text-2xl font-bold text-slate-900 mb-3">Recubrimiento Antirrayas y Repelente</h3>
+<p class="text-slate-600 text-sm md:text-base max-w-xl leading-relaxed">
+          Nano-capas cerámicas que repelen polvo, gotas de agua y huellas dactilares. Cristales que permanecen limpios por mucho más tiempo y con resistencia máxima al rayado habitual.
+        </p>
+</div>
+</div>
+</section>
+
+<!-- SECTION: SALUD VISUAL NOCTURNA (Inspirada en el caso clínico: "¿Ves bien... hasta que llega la noche?") -->
+<section class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" id="salud-nocturna">
+  <div class="clay-card-light rounded-3xl p-8 sm:p-12 relative overflow-hidden bg-gradient-to-br from-slate-900 via-sky-950 to-slate-950 text-white shadow-[0_25px_60px_-15px_rgba(14,165,233,0.25)] border border-sky-800/40">
+    
+    <!-- Ambient night glow -->
+    <div class="absolute -top-32 -right-32 w-96 h-96 bg-sky-500/20 rounded-full blur-[100px] pointer-events-none"></div>
+    <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-cyan-500/15 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <!-- Left Column: Copy & Diagnosis Hook -->
+      <div class="lg:col-span-5 space-y-6">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/15 border border-sky-400/30 text-xs font-bold text-sky-300">
+          <span class="material-symbols-outlined text-[16px]">visibility</span>
+          <span>Salud y Agudeza Visual</span>
+        </div>
+        
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+          ¿Ves bien... <br/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-sky-200">hasta que llega la noche?</span>
+        </h2>
+        
+        <p class="text-slate-300 text-base leading-relaxed">
+          La iluminación y el contraste pueden hacer que algunas <strong class="text-white font-semibold">dificultades visuales sean más evidentes</strong> cuando baja la luz natural.
+        </p>
+
+        <p class="text-slate-300 text-sm leading-relaxed">
+          Una evaluación visual computarizada permite identificar tu necesidad exacta y brindarte la mejor solución. <strong class="text-sky-300">¡Tu examen con nosotros es 100% gratis!</strong>
+        </p>
+
+        <div class="pt-2">
+          <a href="https://wa.me/50241961630?text=Hola%20Visi%C3%B3n%20Saludable,%20siento%20fatiga%20visual%20en%20la%20noche%20y%20deseo%20agendar%20mi%20examen%20gratis." target="_blank" class="btn-emotion-glow inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-sky-500 to-cyan-500 shadow-[0_4px_16px_rgba(14,165,233,0.4)]">
+            <span class="material-symbols-outlined text-[18px]">chat</span>
+            <span>Consultar por WhatsApp (4196-1630)</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: 3 Critical Night Situations (Cards) -->
+      <div class="lg:col-span-7">
+        <p class="text-xs font-bold text-sky-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
+          Situaciones donde más se nota:
+        </p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          
+          <!-- Situation 1 -->
+          <div class="rounded-2xl p-5 bg-white/10 backdrop-blur-md border border-white/10 hover:border-sky-400/50 hover:bg-white/15 transition-all duration-300 group flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/30 border border-amber-400/30 flex items-center justify-center text-amber-300 mb-4 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-2xl">directions_car</span>
+              </div>
+              <h3 class="text-base font-bold text-white mb-2">Conducción nocturna</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Deslumbramiento por luces de otros autos, destellos molestos y pérdida de nitidez en carretera.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 text-[11px] font-semibold text-sky-300 flex items-center gap-1">
+              <span>Filtro Anti-reflejo HD</span>
+            </div>
+          </div>
+
+          <!-- Situation 2 -->
+          <div class="rounded-2xl p-5 bg-white/10 backdrop-blur-md border border-white/10 hover:border-sky-400/50 hover:bg-white/15 transition-all duration-300 group flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-sky-500/30 border border-sky-400/30 flex items-center justify-center text-cyan-300 mb-4 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-2xl">wb_twilight</span>
+              </div>
+              <h3 class="text-base font-bold text-white mb-2">Ambientes con poca luz</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Pérdida de contraste y dificultad para enfocar textos o detalles en interiores y penumbra.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 text-[11px] font-semibold text-sky-300 flex items-center gap-1">
+              <span>Bio-cristal Alta Transmisión</span>
+            </div>
+          </div>
+
+          <!-- Situation 3 -->
+          <div class="rounded-2xl p-5 bg-white/10 backdrop-blur-md border border-white/10 hover:border-sky-400/50 hover:bg-white/15 transition-all duration-300 group flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-indigo-500/30 border border-indigo-400/30 flex items-center justify-center text-blue-300 mb-4 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-2xl">devices</span>
+              </div>
+              <h3 class="text-base font-bold text-white mb-2">Pantallas en la noche</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Fatiga ocular, ardor e insomnio provocados por el brillo de pantallas en la oscuridad.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 text-[11px] font-semibold text-sky-300 flex items-center gap-1">
+              <span>Bio-filtro Blue Defense UV</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- SECTION: PREGUNTAS FRECUENTES (FAQ) EN TEMA CLARO CON LENTE TIRADO -->
+<section class="py-16 md:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative" id="faq">
+<div class="text-center max-w-3xl mx-auto mb-14">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full clay-pill-light text-xs font-bold text-sky-700 mb-3 border border-sky-100">
+<span class="material-symbols-outlined text-[16px] text-sky-600">quiz</span>
+<span class="">Despeja tus dudas clínicas</span>
+</div>
+<h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Preguntas Frecuentes</h2>
+<p class="text-slate-600 text-base mt-2">Todo lo que necesitas saber antes de estrenar tu nueva forma de ver.</p>
+</div>
+<!-- FAQ Light Cards Stack -->
+<div class="space-y-5 relative">
+<!-- 3. LENTE TIRADO #3 (Apoyado sobre la primera tarjeta FAQ) -->
+<div class="scattered-glasses -top-4 right-6 w-16 h-10" data-scatter="3" title="¡Hazme clic o pasa el mouse!">
+<svg class="w-full h-full text-slate-700/90 hover:text-sky-600" fill="none" viewbox="0 0 64 36">
+<path d="M4 12 C4 8 8 6 15 6 C22 6 25 8 25 12 C25 22 21 26 15 26 C8 26 4 22 4 12 Z" fill="#e2e8f0" fill-opacity="0.5" stroke="currentColor" stroke-width="2.8"></path>
+<path d="M39 12 C39 8 43 6 49 6 C56 6 60 8 60 12 C60 22 56 26 49 26 C43 26 39 22 39 12 Z" fill="#e2e8f0" fill-opacity="0.5" stroke="currentColor" stroke-width="2.8"></path>
+<path d="M25 12 Q32 8 39 12" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
+<line opacity="0.9" stroke="white" stroke-linecap="round" stroke-width="2" x1="8" x2="16" y1="10" y2="22"></line>
+</svg>
+</div>
+<!-- FAQ 1 -->
+<div class="clay-card-light rounded-3xl p-6 sm:p-7 group">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-2xl bg-sky-50 flex-shrink-0 flex items-center justify-center text-sky-600 border border-sky-100 mt-0.5 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</div>
+<div class="flex-1">
+<h3 class="text-lg font-bold text-slate-900 mb-2">¿Cómo detectar si necesito lentes?</h3>
+<p class="text-slate-600 text-sm leading-relaxed">
+              Los signos principales incluyen dolores de cabeza frecuentes tras usar pantallas, necesidad de entrecerrar los ojos para enfocar de lejos, visión borrosa al final de la tarde, lagrimeo excesivo o dificultad para leer textos pequeños a distancia normal. Si experimentas alguno, un examen computarizado te brindará el diagnóstico exacto.
+            </p>
+</div>
+</div>
+</div>
+<!-- FAQ 2 -->
+<div class="clay-card-light rounded-3xl p-6 sm:p-7 group">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-2xl bg-sky-50 flex-shrink-0 flex items-center justify-center text-sky-600 border border-sky-100 mt-0.5 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-[20px]">blur_on</span>
+</div>
+<div class="flex-1">
+<h3 class="text-lg font-bold text-slate-900 mb-2">¿Qué beneficios tiene el filtro de luz azul?</h3>
+<p class="text-slate-600 text-sm leading-relaxed">
+              Nuestros cristales con filtro azul UV400 filtran la radiación de longitud de onda corta emitida por computadoras y celulares. Esto previene el cansancio muscular ocular, disminuye drásticamente el síndrome de ojo seco y previene la alteración de los ciclos de melatonina, permitiendo conciliar un sueño más profundo y reparador.
+            </p>
+</div>
+</div>
+</div>
+<!-- FAQ 3 -->
+<div class="clay-card-light rounded-3xl p-6 sm:p-7 group">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-2xl bg-sky-50 flex-shrink-0 flex items-center justify-center text-sky-600 border border-sky-100 mt-0.5 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-[20px]">event_repeat</span>
+</div>
+<div class="flex-1">
+<h3 class="text-lg font-bold text-slate-900 mb-2">¿Cada cuánto debo hacer mi examen de la vista?</h3>
+<p class="text-slate-600 text-sm leading-relaxed">
+              Para adultos y niños en edad escolar recomendamos una evaluación optométrica cada 12 meses. Los cambios refractivos suelen ocurrir de manera paulatina sin que el paciente lo note conscientemente, forzando la vista de forma innecesaria.
+            </p>
+</div>
+</div>
+</div>
+<!-- FAQ 4 -->
+<div class="clay-card-light rounded-3xl p-6 sm:p-7 group">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-2xl bg-sky-50 flex-shrink-0 flex items-center justify-center text-sky-600 border border-sky-100 mt-0.5 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</div>
+<div class="flex-1">
+<h3 class="text-lg font-bold text-slate-900 mb-2">¿Qué garantía tienen los cristales de Visión Saludable?</h3>
+<p class="text-slate-600 text-sm leading-relaxed">
+              Ofrecemos garantía de adaptación total de 30 días (si necesitas cualquier ajuste a tu graduación, lo calibramos sin costo adicional) y una garantía certificada de 1 año contra desprendimiento del tratamiento antirreflejo y defectos de manufactura en monturas seleccionadas.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: ASESORES (Con el rótulo exacto "Aquí irán los asesores" y Lentes Tirados) -->
+<section class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" id="asesores">
+<div class="text-center max-w-3xl mx-auto mb-14 relative">
+<!-- 3. LENTE TIRADO #4 (Apoyado sobre el encabezado de asesores) -->
+<div class="scattered-glasses -top-6 right-8 w-16 h-10 hidden sm:block" data-scatter="4" title="¡Micro-gafas en balance elástico!">
+<svg class="w-full h-full text-cyan-600/90 hover:text-cyan-500" fill="none" viewbox="0 0 64 36">
+<circle cx="16" cy="18" fill="#cffafe" fill-opacity="0.6" r="11" stroke="currentColor" stroke-width="3"></circle>
+<circle cx="48" cy="18" fill="#cffafe" fill-opacity="0.6" r="11" stroke="currentColor" stroke-width="3"></circle>
+<path d="M27 18 L37 18" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
+<path d="M5 18 L-2 15" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M59 18 L66 15" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<line opacity="0.8" stroke="white" stroke-linecap="round" stroke-width="2" x1="10" x2="18" y1="12" y2="24"></line>
+</svg>
+</div>
+<!-- Badge específico requerido -->
+<div class="inline-flex items-center gap-2 px-5 py-2 rounded-full clay-pill-light text-xs font-bold text-sky-700 border border-sky-200 shadow-sm mb-3">
+<span class="material-symbols-outlined text-[19px] text-sky-600">badge</span>
+<span class="">Aquí irán los asesores</span>
+</div>
+<h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Equipo de Especialistas Ópticos</h2>
+<p class="text-slate-600 text-base mt-2">Profesionales certificados listos para guiar tu diagnóstico y elegir la montura ideal para tu morfología.</p>
+</div>
+<!-- Asesores Cards Grid en Tema Claro -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+<!-- 3. LENTE TIRADO #5 (Sobre la esquina de la tercera tarjeta de asesores) -->
+<div class="scattered-glasses -top-4 -right-2 w-14 h-9" data-scatter="5" title="¡Scatter nudge!">
+<svg class="w-full h-full text-slate-900/80 hover:text-sky-600" fill="none" viewbox="0 0 64 36">
+<path d="M3 10 C4 6 10 5 16 5 C22 5 26 7 26 12 C26 21 21 27 15 27 C8 27 3 21 3 10 Z" fill="#e0f2fe" fill-opacity="0.5" stroke="currentColor" stroke-width="2.8"></path>
+<path d="M38 12 C38 7 42 5 48 5 C54 5 60 6 61 10 C61 21 56 27 49 27 C43 27 38 21 38 12 Z" fill="#e0f2fe" fill-opacity="0.5" stroke="currentColor" stroke-width="2.8"></path>
+<path d="M26 12 Q32 7 38 12" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
+<line opacity="0.8" stroke="white" stroke-linecap="round" stroke-width="2" x1="10" x2="18" y1="9" y2="23"></line>
+</svg>
+</div>
+<!-- Asesor 1 -->
+<div class="clay-card-light rounded-3xl p-7 flex flex-col items-center text-center group">
+<div class="relative mb-5">
+<div class="w-28 h-28 rounded-full overflow-hidden p-1 border-2 border-sky-300 shadow-md bg-white group-hover:scale-105 transition-transform duration-300">
+<img alt="Dr. Mateo Calderón" class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA50VpJ9XRVqEgh9nFNAGioRwlwsok7SEKAk7-v9WWVAbItwq2BUjXQ_clXtaWORuq0V6-OAaS4AcAFdj9Sl4EagBOv4bMNIIbgLqIcSzQXFWmSUtRW7ZBvZ7Y9eEo4HETpZqcQDYu8140Dwr2PCCklx319Eht3tAYGsBYWGH2SwGDeK-dzklwkXVrSt2w5djN0Kp1pIabODvkHvuy4qLetQbAB7FkiHVZPYHYtIplW"/>
+</div>
+<div class="absolute bottom-0 right-0 w-8 h-8 rounded-full bg-sky-500 text-white flex items-center justify-center shadow-md border-2 border-white">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+</div>
+<h3 class="text-xl font-bold text-slate-900">Dr. Mateo Calderón</h3>
+<p class="text-xs font-bold text-sky-600 mt-1 uppercase tracking-wide">Optometría Clínica &amp; Refracción</p>
+<p class="text-slate-600 text-xs mt-3 leading-relaxed px-2">
+          Especialista en queratocono, alta graduación miópica y diseño de lentes personalizados Free-Form. 12 años de trayectoria médica.
+        </p>
+<div class="flex items-center gap-1 my-4 text-amber-400">
+<span class="material-symbols-outlined text-[18px]" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-[18px]" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-[18px]" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-[18px]" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-[18px]" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="text-xs font-semibold text-slate-700 ml-1.5">(4.9/5)</span>
+</div>
+<a class="mt-auto w-full py-2.5 rounded-full text-xs font-bold text-slate-800 glass-button-light hover:bg-sky-500 hover:text-white hover:border-sky-500 transition-all flex items-center justify-center gap-2 active:scale-95 shadow-sm" href="#agendar">
+<span class="material-symbols-outlined text-[17px]">calendar_add_on</span>
+<span class="">Solicitar Asesoría</span>
+</a>
+</div>
+<!-- Asesor 2 -->
+<div class="clay-card-light rounded-3xl p-7 flex flex-col items-center text-center group">
+<div class="relative mb-5">
+<div class="w-28 h-28 rounded-full overflow-hidden p-1 border-2 border-cyan-300 shadow-md bg-white group-hover:scale-105 transition-transform duration-300">
+<img alt="Dra. Valeria Rincón" class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmQDSmUFwfgwfeO490Hy4tnoPqx63oB2-N868LsdP5md43mipc-Y9tac_dT8i0i_PerMQ6H-0qQvTtFbcy6PLRBfZSGm4ZNCEV_V7mv0zgZfpzl9-jUlCA0Wbk8xzalu0rpeEcpoIdqLgn24Oh0lQOPpOiQ23QuVP8Xfb8oBJJgps5t1EbvsGE31rAKuHUcg8rR2l-Y_lbE_TOWGRDnQ0lzlDB6taES6MuUNBuSf-U"/>
+</div>
+<div class="absolute bottom-0 right-0 w-8 h-8 rounded-full bg-cyan-600 text-white flex items-center justify-center shadow-md border-2 border-white">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+</div>
+<h3 class="text-xl font-bold text-slate-900">Dra. Valeria Rincón</h3>
+<p class="text-xs font-bold text-cyan-600 mt-1 uppercase tracking-wide">Especialista en Lentes Progresivos</p>
+<p class="text-slate-600 text-xs mt-3 leading-relaxed px-2">
+          Máster en optometría geriátrica y corrección de presbicia mediante calibración ergonómica y postural de campos visuales.
+        </p>
+<div class="flex items-center gap-1 my-4 text-amber-400">
+<span class="material-symbols-outlined text-[18px]" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-[18px]" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-[18px]" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-[18px]" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-[18px]" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="text-xs font-semibold text-slate-700 ml-1.5">(5.0/5)</span>
+</div>
+<a class="mt-auto w-full py-2.5 rounded-full text-xs font-bold text-slate-800 glass-button-light hover:bg-cyan-600 hover:text-white hover:border-cyan-600 transition-all flex items-center justify-center gap-2 active:scale-95 shadow-sm" href="#agendar">
+<span class="material-symbols-outlined text-[17px]">calendar_add_on</span>
+<span class="">Solicitar Asesoría</span>
+</a>
+</div>
+<!-- Asesor 3 -->
+<div class="clay-card-light rounded-3xl p-7 flex flex-col items-center text-center group">
+<div class="relative mb-5">
+<div class="w-28 h-28 rounded-full overflow-hidden p-1 border-2 border-sky-300 shadow-md bg-white group-hover:scale-105 transition-transform duration-300">
+<img alt="Lic. Camilo Duarte" class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQMoAXrcE4pmYwJPtwMrPUvJxQuGO92jleSX9d-yzxn8bNMs8OfPk3SeosFbBeWApGPVYaxpoCDdDcERazY5NLbWLho8x169LcfemhsYqH_As4NX0W7VVOh1wMEpA9hw1CD2YtOxyGiMP_tZSp7M0-6ekzYzvJvpdIyzjAK3dMyw3x7C9qieNMIMn9jEXFNY7hOh_EySyfvOxPdVi-lDuGxoSx1cSUWAQnS13_0d77"/>
+</div>
+<div class="absolute bottom-0 right-0 w-8 h-8 rounded-full bg-slate-800 text-white flex items-center justify-center shadow-md border-2 border-white">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+</div>
+<h3 class="text-xl font-bold text-slate-900">Lic. Camilo Duarte</h3>
+<p class="text-xs font-bold text-slate-700 mt-1 uppercase tracking-wide">Asesor de Estilo y Visagismo</p>
+<p class="text-slate-600 text-xs mt-3 leading-relaxed px-2">
+          Consultor en armonía fisonómica y materiales de montura (titanio aeroespacial, acetato italiano y fibra de carbono ultra delgada).
+        </p>
+<div class="flex items-center gap-1 my-4 text-amber-400">
+<span class="material-symbols-outlined text-[18px]" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-[18px]" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-[18px]" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-[18px]" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined text-[18px]" style='font-variation-settings: "FILL" 1;'>star_half</span>
+<span class="text-xs font-semibold text-slate-700 ml-1.5">(4.8/5)</span>
+</div>
+<a class="mt-auto w-full py-2.5 rounded-full text-xs font-bold text-slate-800 glass-button-light hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all flex items-center justify-center gap-2 active:scale-95 shadow-sm" href="#agendar">
+<span class="material-symbols-outlined text-[17px]">calendar_add_on</span>
+<span class="">Solicitar Asesoría</span>
+</a>
+</div>
+</div>
+</section>
+<!-- SECTION: NUESTROS COMENTARIOS (CARRUSEL MARQUEE CON MÁSCARAS DE DESVANECIMIENTO LATERAL A BLANCO PURO) -->
+<section class="py-16 md:py-24 overflow-hidden relative" id="testimonios">
+<div class="text-center max-w-3xl mx-auto mb-14 px-4">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full clay-pill-light text-xs font-bold text-sky-700 mb-3 border border-sky-100">
+<span class="material-symbols-outlined text-[16px] text-sky-600">forum</span>
+<span class="">Experiencias Reales de Claridad</span>
+</div>
+<h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Nuestros Comentarios</h2>
+<p class="text-slate-600 text-base mt-2">Pacientes que transformaron su vida diaria con cristales de precisión Visión Saludable.</p>
+</div>
+<!-- Marquee Container with lateral fade-out masks to pure white -->
+<div class="relative w-full overflow-hidden">
+<!-- Gradient Masks -->
+<div class="absolute left-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-r from-white via-white/95 to-transparent z-20 pointer-events-none"></div>
+<div class="absolute right-0 top-0 bottom-0 w-24 sm:w-48 bg-gradient-to-l from-white via-white/95 to-transparent z-20 pointer-events-none"></div>
+<!-- Continuous Infinite Marquee Strip (Sin pausas ni espacios vacíos) -->
+<div class="marquee-parent flex overflow-hidden w-full gap-6 py-4 select-none">
+  <!-- TRACK 1 -->
+  <div class="marquee-track flex shrink-0 gap-6">
+    <!-- Card 1 -->
+    <div class="w-[340px] sm:w-[400px] flex-shrink-0 clay-card-light rounded-3xl p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 rounded-full bg-sky-100 text-sky-700 font-bold flex items-center justify-center border border-sky-200 text-sm">
+          SR
+        </div>
+        <div>
+          <h4 class="text-sm font-bold text-slate-900">Sofía Ramírez</h4>
+          <p class="text-xs text-slate-500">Diseñadora Gráfica • Filtro Blue Defense</p>
+        </div>
+      </div>
+      <p class="text-slate-600 text-sm italic mb-4 leading-relaxed">
+        "Paso 10 horas frente a pantallas de alta resolución. Desde que cambié a los cristales de Visión Saludable desapareció el ardor en los ojos y los colores se ven ultra fieles. Increíble servicio."
+      </p>
+      <div class="flex text-amber-400">
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="w-[340px] sm:w-[400px] flex-shrink-0 clay-card-light rounded-3xl p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 rounded-full bg-cyan-100 text-cyan-700 font-bold flex items-center justify-center border border-cyan-200 text-sm">
+          JM
+        </div>
+        <div>
+          <h4 class="text-sm font-bold text-slate-900">Jorge Mendoza</h4>
+          <p class="text-xs text-slate-500">Arquitecto • Progresivo Digital HD</p>
+        </div>
+      </div>
+      <p class="text-slate-600 text-sm italic mb-4 leading-relaxed">
+        "Tenía terror a los lentes progresivos por experiencias anteriores donde me mareaba al bajar escaleras. Con su escaneo 3D me adapté en el primer minuto. Una verdadera maravilla."
+      </p>
+      <div class="flex text-amber-400">
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="w-[340px] sm:w-[400px] flex-shrink-0 clay-card-light rounded-3xl p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 rounded-full bg-sky-100 text-sky-700 font-bold flex items-center justify-center border border-sky-200 text-sm">
+          CL
+        </div>
+        <div>
+          <h4 class="text-sm font-bold text-slate-900">Camila Lozano</h4>
+          <p class="text-xs text-slate-500">Estudiante Universitaria • Antirreflejo Plus</p>
+        </div>
+      </div>
+      <p class="text-slate-600 text-sm italic mb-4 leading-relaxed">
+        "La atención de los asesores fue insuperable. Me ayudaron a encontrar una montura que va perfecto con mi cara y los cristales no se ensucian casi nada. ¡Totalmente recomendados!"
+      </p>
+      <div class="flex text-amber-400">
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="w-[340px] sm:w-[400px] flex-shrink-0 clay-card-light rounded-3xl p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 rounded-full bg-slate-100 text-slate-800 font-bold flex items-center justify-center border border-slate-200 text-sm">
+          DR
+        </div>
+        <div>
+          <h4 class="text-sm font-bold text-slate-900">Diego Restrepo</h4>
+          <p class="text-xs text-slate-500">Desarrollador Software • Fotocromático UV</p>
+        </div>
+      </div>
+      <p class="text-slate-600 text-sm italic mb-4 leading-relaxed">
+        "El oscurecimiento al salir al sol es instantáneo y cuando regreso a mi setup de trabajo se aclaran rápido. Adiós a cambiar de gafas todo el tiempo. La mejor inversión en salud."
+      </p>
+      <div class="flex text-amber-400">
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+      </div>
+    </div>
+    <!-- Card 5 -->
+    <div class="w-[340px] sm:w-[400px] flex-shrink-0 clay-card-light rounded-3xl p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center border border-emerald-200 text-sm">
+          EC
+        </div>
+        <div>
+          <h4 class="text-sm font-bold text-slate-900">Elena Castillo</h4>
+          <p class="text-xs text-slate-500">Auditora Financiera • Antifatiga Digital</p>
+        </div>
+      </div>
+      <p class="text-slate-600 text-sm italic mb-4 leading-relaxed">
+        "El examen visual que me hicieron fue completísimo y gratis. Me explicaron al detalle la graduación y cómo cuidar mis ojos en la oficina. Llegué a recogerlos en 3 días y todo perfecto."
+      </p>
+      <div class="flex text-amber-400">
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+      </div>
+    </div>
+    <!-- Card 6 -->
+    <div class="w-[340px] sm:w-[400px] flex-shrink-0 clay-card-light rounded-3xl p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 rounded-full bg-indigo-100 text-indigo-800 font-bold flex items-center justify-center border border-indigo-200 text-sm">
+          CM
+        </div>
+        <div>
+          <h4 class="text-sm font-bold text-slate-900">Carlos Morales</h4>
+          <p class="text-xs text-slate-500">Transporte y Logística • Filtro Nocturno</p>
+        </div>
+      </div>
+      <p class="text-slate-600 text-sm italic mb-4 leading-relaxed">
+        "Manejo mucho de noche y las luces de los tráilers me cegaban. Los lentes con filtro nocturno de Visión Saludable me cambiaron la vida por completo. Viajo mucho más seguro."
+      </p>
+      <div class="flex text-amber-400">
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRACK 2 (CLON IDÉNTICO PARA BUCLE INFINITO CONTINUO SIN CORTES) -->
+  <div class="marquee-track flex shrink-0 gap-6" aria-hidden="true">
+    <!-- Card 1 -->
+    <div class="w-[340px] sm:w-[400px] flex-shrink-0 clay-card-light rounded-3xl p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 rounded-full bg-sky-100 text-sky-700 font-bold flex items-center justify-center border border-sky-200 text-sm">
+          SR
+        </div>
+        <div>
+          <h4 class="text-sm font-bold text-slate-900">Sofía Ramírez</h4>
+          <p class="text-xs text-slate-500">Diseñadora Gráfica • Filtro Blue Defense</p>
+        </div>
+      </div>
+      <p class="text-slate-600 text-sm italic mb-4 leading-relaxed">
+        "Paso 10 horas frente a pantallas de alta resolución. Desde que cambié a los cristales de Visión Saludable desapareció el ardor en los ojos y los colores se ven ultra fieles. Increíble servicio."
+      </p>
+      <div class="flex text-amber-400">
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="w-[340px] sm:w-[400px] flex-shrink-0 clay-card-light rounded-3xl p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 rounded-full bg-cyan-100 text-cyan-700 font-bold flex items-center justify-center border border-cyan-200 text-sm">
+          JM
+        </div>
+        <div>
+          <h4 class="text-sm font-bold text-slate-900">Jorge Mendoza</h4>
+          <p class="text-xs text-slate-500">Arquitecto • Progresivo Digital HD</p>
+        </div>
+      </div>
+      <p class="text-slate-600 text-sm italic mb-4 leading-relaxed">
+        "Tenía terror a los lentes progresivos por experiencias anteriores donde me mareaba al bajar escaleras. Con su escaneo 3D me adapté en el primer minuto. Una verdadera maravilla."
+      </p>
+      <div class="flex text-amber-400">
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="w-[340px] sm:w-[400px] flex-shrink-0 clay-card-light rounded-3xl p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 rounded-full bg-sky-100 text-sky-700 font-bold flex items-center justify-center border border-sky-200 text-sm">
+          CL
+        </div>
+        <div>
+          <h4 class="text-sm font-bold text-slate-900">Camila Lozano</h4>
+          <p class="text-xs text-slate-500">Estudiante Universitaria • Antirreflejo Plus</p>
+        </div>
+      </div>
+      <p class="text-slate-600 text-sm italic mb-4 leading-relaxed">
+        "La atención de los asesores fue insuperable. Me ayudaron a encontrar una montura que va perfecto con mi cara y los cristales no se ensucian casi nada. ¡Totalmente recomendados!"
+      </p>
+      <div class="flex text-amber-400">
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="w-[340px] sm:w-[400px] flex-shrink-0 clay-card-light rounded-3xl p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 rounded-full bg-slate-100 text-slate-800 font-bold flex items-center justify-center border border-slate-200 text-sm">
+          DR
+        </div>
+        <div>
+          <h4 class="text-sm font-bold text-slate-900">Diego Restrepo</h4>
+          <p class="text-xs text-slate-500">Desarrollador Software • Fotocromático UV</p>
+        </div>
+      </div>
+      <p class="text-slate-600 text-sm italic mb-4 leading-relaxed">
+        "El oscurecimiento al salir al sol es instantáneo y cuando regreso a mi setup de trabajo se aclaran rápido. Adiós a cambiar de gafas todo el tiempo. La mejor inversión en salud."
+      </p>
+      <div class="flex text-amber-400">
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+      </div>
+    </div>
+    <!-- Card 5 -->
+    <div class="w-[340px] sm:w-[400px] flex-shrink-0 clay-card-light rounded-3xl p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center border border-emerald-200 text-sm">
+          EC
+        </div>
+        <div>
+          <h4 class="text-sm font-bold text-slate-900">Elena Castillo</h4>
+          <p class="text-xs text-slate-500">Auditora Financiera • Antifatiga Digital</p>
+        </div>
+      </div>
+      <p class="text-slate-600 text-sm italic mb-4 leading-relaxed">
+        "El examen visual que me hicieron fue completísimo y gratis. Me explicaron al detalle la graduación y cómo cuidar mis ojos en la oficina. Llegué a recogerlos en 3 días y todo perfecto."
+      </p>
+      <div class="flex text-amber-400">
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+      </div>
+    </div>
+    <!-- Card 6 -->
+    <div class="w-[340px] sm:w-[400px] flex-shrink-0 clay-card-light rounded-3xl p-6">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 rounded-full bg-indigo-100 text-indigo-800 font-bold flex items-center justify-center border border-indigo-200 text-sm">
+          CM
+        </div>
+        <div>
+          <h4 class="text-sm font-bold text-slate-900">Carlos Morales</h4>
+          <p class="text-xs text-slate-500">Transporte y Logística • Filtro Nocturno</p>
+        </div>
+      </div>
+      <p class="text-slate-600 text-sm italic mb-4 leading-relaxed">
+        "Manejo mucho de noche y las luces de los tráilers me cegaban. Los lentes con filtro nocturno de Visión Saludable me cambiaron la vida por completo. Viajo mucho más seguro."
+      </p>
+      <div class="flex text-amber-400">
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+        <span class="material-symbols-outlined text-[16px]" style='font-variation-settings: "FILL" 1;'>star</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- SECTION: AGENDAR EXAMEN CTA CARD (Pure Light Theme with Emotion CTA) -->
+<section class="py-16 md:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8" id="agendar">
+<div class="clay-card-light rounded-3xl p-8 sm:p-12 relative overflow-hidden text-center bg-gradient-to-b from-white via-sky-50/40 to-white">
+<!-- Glow Aura -->
+<div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-sky-200/40 rounded-full blur-[90px] pointer-events-none"></div>
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full clay-pill-light text-xs font-bold text-sky-700 mb-6 border border-sky-100">
+<span class="material-symbols-outlined text-[18px] text-sky-600">health_and_safety</span>
+<span class="">Cita Presencial • Examen Computarizado</span>
+</div>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 max-w-2xl mx-auto tracking-tight leading-tight">
+        ¿Listo para experimentar una claridad sin precedentes?
+      </h2>
+<p class="text-slate-600 text-base max-w-xl mx-auto mt-4 mb-3 leading-relaxed">
+        Agenda tu examen optométrico digital computarizado. Evaluamos agudeza visual, fondo de ojo, presión intraocular y alineación binocular en 30 minutos.
+      </p>
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs sm:text-sm font-bold mb-8 shadow-xs">
+  <span class="material-symbols-outlined text-[18px] text-emerald-600">check_circle</span>
+  <span>¡El examen de la vista es totalmente GRATIS!</span>
+</div>
+<!-- Booking Form con envío directo a WhatsApp 4196-1630 -->
+<form class="max-w-xl mx-auto flex flex-col sm:flex-row gap-3 items-center" onsubmit="enviarCitaWhatsApp(event)">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">call</span>
+<input id="telefonoCita" class="w-full pl-12 pr-4 py-3.5 rounded-full bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-200 text-sm transition-all shadow-sm" placeholder="Ingresa tu teléfono (ej. 4196-1630)" required="" type="tel"/>
+</div>
+<button class="btn-emotion-glow w-full sm:w-auto flex-shrink-0 px-8 py-3.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-sky-500 to-cyan-500 shadow-[0_4px_18px_rgba(14,165,233,0.35)] cursor-pointer flex items-center justify-center gap-2" type="submit">
+  <span class="material-symbols-outlined text-[18px]">chat</span>
+  <span>Agendar por WhatsApp</span>
+</button>
+</form>
+<div class="flex flex-wrap justify-center items-center gap-6 mt-8 text-xs font-medium text-slate-600">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-emerald-600 text-[18px]">verified</span>
+<span class="font-bold text-emerald-700">Examen 100% Gratis</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sky-600 text-[18px]">schedule</span>
+<span class="">Atención sin filas</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sky-600 text-[18px]">storefront</span>
+<span class="">Entrega y retiro en óptica</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECTION: UBICACIÓN Y CÓMO LLEGAR (CUADRADO CON BORDES REDONDEADOS Y GLASSMORPHISM) -->
+<section class="py-16 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative" id="ubicacion">
+  <div class="text-center max-w-xl mx-auto mb-8">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full clay-pill-light text-xs font-bold text-sky-700 mb-3 border border-sky-100">
+      <span class="material-symbols-outlined text-[16px] text-sky-600">pin_drop</span>
+      <span>Nuestra Clínica Óptica</span>
+    </div>
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Ven por tus Lentes</h2>
+    <p class="text-slate-600 text-sm sm:text-base mt-2">El cliente viene a traerlos personalmente y calibramos tu ajuste al instante. Elige cómo llegar con un solo clic:</p>
+  </div>
+
+  <!-- Tarjeta Cuadrada Glassmorphism -->
+  <div class="w-full max-w-lg mx-auto aspect-square clay-card-light glass-light rounded-[36px] sm:rounded-[44px] p-6 sm:p-7 border border-white/95 shadow-[0_25px_60px_-15px_rgba(14,165,233,0.2)] flex flex-col justify-between overflow-hidden relative backdrop-blur-2xl">
+    
+    <!-- Header de la tarjeta -->
+    <div class="flex items-center justify-between pb-3 border-b border-sky-100/80">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 shadow-xs">
+          <span class="material-symbols-outlined text-[22px]">location_on</span>
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-slate-900 leading-tight">Visión Saludable</h3>
+          <p class="text-xs text-slate-500">Entrega en sucursal • Examen Gratis</p>
+        </div>
+      </div>
+      <a href="https://wa.me/50241961630?text=Hola%20Visi%C3%B3n%20Saludable,%20quisiera%20consultar%20la%20direcci%C3%B3n%20exacta." target="_blank" class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200 hover:bg-emerald-100 transition-colors flex items-center gap-1 shadow-xs">
+        <span class="material-symbols-outlined text-[14px]">chat</span>
+        <span>4196-1630</span>
+      </a>
+    </div>
+
+    <!-- Mapa Interactivo Centrado -->
+    <div class="w-full flex-1 my-3 rounded-2xl overflow-hidden border border-sky-100/90 shadow-inner relative bg-slate-100 min-h-[160px]">
+      <iframe 
+        title="Ubicación Visión Saludable"
+        class="w-full h-full border-0"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123533.91136423376!2d-90.58983949826317!3d14.62843464293933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a180655c3345%3A0x4a72c7815b867b25!2sGuatemala%20City%2C%20Guatemala!5e0!3m2!1sen!2sgt!4v1700000000000!5m2!1sen!2sgt" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <!-- Botones de Navegación: Google Maps y Waze -->
+    <div class="pt-2">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+        <!-- Botón Google Maps -->
+        <a href="https://maps.google.com/?q=Optica+Vision+Saludable" target="_blank" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-bold shadow-xs hover:shadow transition-all group">
+          <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#EA4335"/>
+            <circle cx="12" cy="9" r="2.5" fill="#FFFFFF"/>
+          </svg>
+          <span>Abrir con Google Maps</span>
+        </a>
+
+        <!-- Botón Waze -->
+        <a href="https://waze.com/ul?q=Optica%20Vision%20Saludable" target="_blank" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-[#33ccff] hover:bg-[#29b8e6] text-slate-900 text-xs sm:text-sm font-bold shadow-xs hover:shadow transition-all">
+          <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.003 2c-5.523 0-10 4.477-10 10 0 2.52 1.028 4.8 2.688 6.476L3.5 22l3.856-1.077c1.406.697 2.986 1.077 4.647 1.077 5.523 0 10-4.477 10-10s-4.477-10-10-10zm-3 8a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm6 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-3 7c-2.03 0-3.5-1.5-3.5-1.5a.75.75 0 0 1 1.06-1.06s1.08 1.06 2.44 1.06 2.44-1.06 2.44-1.06a.75.75 0 1 1 1.06 1.06S14.033 17 12.003 17z"/>
+          </svg>
+          <span>Abrir con Waze</span>
+        </a>
+      </div>
+      <p class="text-center text-[11px] text-slate-500 mt-2 font-medium">
+        ¿Deseas confirmar la ruta? Escríbenos al WhatsApp: <strong class="text-sky-600 font-bold">4196-1630</strong>
+      </p>
+    </div>
+
+  </div>
+</section>
+</main>
+<!-- FOOTER (Pristine Light Theme) -->
+<footer class="w-full rounded-t-3xl bg-slate-50 border-t border-slate-200 shadow-sm mt-16 relative z-10">
+<div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<!-- Left Branding -->
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full overflow-hidden bg-white p-0.5 border border-slate-200 flex items-center justify-center shadow-xs">
+<img alt="Visión Saludable Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPr9hbTJizVDsgtXPnGGMSyY91zZ6-TO6oi2wEZKfFaQZIWPOpTCsol54asnt1I6-xjovtdQ8vV48XyTAIeLvGw_WvArxCThaxbjCa0y-QxFkUCLocoKzCsgJJnX8ZzmFOneOph5y1fF-QK-GEP0CE7rou223-2SDL5gEpvOn7P0jW1PSa9TAKmOGzbVymfHjAKuf03JSPeJVELWcga4uwWrVbVcwWLA0OJIGZEjCeH8De3awls7IHoQ"/>
+</div>
+<div>
+<span class="text-lg font-extrabold text-slate-900 tracking-tight">Visión Saludable</span>
+<p class="text-xs text-slate-500 font-normal">Tecnología óptica para una vida sin límites visuales.</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+<a class="text-xs font-semibold text-sky-600 hover:text-sky-700 transition-colors" href="#inicio">Inicio</a>
+<a class="text-xs font-medium text-slate-600 hover:text-slate-900 transition-colors" href="#lentes">Lentes y Filtros</a>
+<a class="text-xs font-medium text-slate-600 hover:text-slate-900 transition-colors" href="#salud-nocturna">Salud Nocturna</a>
+<a class="text-xs font-medium text-slate-600 hover:text-slate-900 transition-colors" href="#ubicacion">Cómo Llegar</a>
+<a class="text-xs font-medium text-slate-600 hover:text-slate-900 transition-colors" href="#faq">Preguntas Frecuentes</a>
+<a class="text-xs font-bold text-emerald-600 hover:text-emerald-700 transition-colors flex items-center gap-1" href="https://wa.me/50241961630" target="_blank">
+  <span>WhatsApp 4196-1630</span>
+</a>
+</div>
+<!-- Copyright -->
+<div class="text-xs text-slate-500 text-center md:text-right font-normal">
+      © 2025 Visión Saludable. Todos los derechos reservados.
+    </div>
+</div>
+</footer>
+<!-- Web Component registration for <threejs-scene> executing ANIMATION_11 code -->
+<script>
+  class ThreeJSSceneElement extends HTMLElement {
+    connectedCallback() {
+      const container = this;
+      try {
+        const animCode = this.getAttribute('src');
+        if (animCode) {
+          const runAnimation = new Function('container', 'THREE', animCode);
+          runAnimation(container, window.THREE);
+        }
+      } catch (err) {
+        console.error("ThreeJS scene execution error:", err);
+      }
+    }
+  }
+  if (!customElements.get('threejs-scene')) {
+    customElements.define('threejs-scene', ThreeJSSceneElement);
+  }
+
+  // Micro-physics scatter behavior for "Lentes tirados en la página"
+  document.addEventListener('DOMContentLoaded', () => {
+    const glasses = document.querySelectorAll('.scattered-glasses');
+    
+    // Initial random resting tilts
+    const baseTilts = [ -12, 18, -8, 22, -15 ];
+    glasses.forEach((item, index) => {
+      const baseAngle = baseTilts[index % baseTilts.length];
+      item.style.transform = `rotate(${baseAngle}deg) scale(1)`;
+      item.dataset.baseAngle = baseAngle;
+      
+      let isNudged = false;
+      
+      const nudge = (e) => {
+        const rect = item.getBoundingClientRect();
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX) || (rect.left + rect.width / 2);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY) || (rect.top + rect.height / 2);
+        
+        const deltaX = (clientX - (rect.left + rect.width / 2)) * 0.45;
+        const deltaY = (clientY - (rect.top + rect.height / 2)) * 0.45;
+        
+        // Spring jiggle physics displacement
+        const pushX = Math.max(-30, Math.min(30, -deltaX * 1.4));
+        const pushY = Math.max(-25, Math.min(25, -deltaY * 1.4));
+        const spin = (Math.random() - 0.5) * 40;
+        
+        item.style.transform = `translate(${pushX}px, ${pushY}px) rotate(${baseAngle + spin}deg) scale(1.18)`;
+        
+        clearTimeout(item.resetTimer);
+        item.resetTimer = setTimeout(() => {
+          item.style.transform = `translate(0px, 0px) rotate(${baseAngle}deg) scale(1)`;
+        }, 1100);
+      };
+
+      item.addEventListener('mouseenter', nudge);
+      item.addEventListener('click', nudge);
+      item.addEventListener('touchstart', nudge, { passive: true });
+    });
+  });
+
+  window.enviarCitaWhatsApp = function(event) {
+    if (event) event.preventDefault();
+    const telInput = document.getElementById('telefonoCita');
+    const tel = telInput ? telInput.value.trim() : '';
+    const msg = encodeURIComponent(`¡Hola Visión Saludable! Quiero agendar mi examen de la vista GRATIS. Mi número de contacto es: ${tel}`);
+    window.open(`https://wa.me/50241961630?text=${msg}`, '_blank');
+  };
+</script>
+
+<!-- AVATAR INTERACTIVO ANIMADO: "OJITO" (10 Poses de Emociones, Carro Deportivo, Escalar Pared, Rompiendo la 4ta Pared - Sin Emojis) -->
+<div id="mascotRootContainer" class="fixed bottom-6 left-6 z-50 pointer-events-none select-none flex flex-col items-center" style="width: 125px;">
+
+  <!-- Interactive Speech Bubble (pointer-events-auto, Sin Emojis) -->
+  <div id="mascotSpeechBubble" class="pointer-events-auto absolute bottom-28 left-0 w-64 p-3.5 bg-white border-2 border-slate-900 rounded-2xl shadow-[4px_4px_0px_#0f172a] text-left mb-2 z-20 transition-all duration-300 opacity-100 scale-100 origin-bottom-left cursor-default">
+    <!-- Close button -->
+    <button type="button" onclick="closeSpeechBubble(true)" class="absolute -top-2 -right-2 w-6 h-6 bg-rose-500 hover:bg-rose-600 text-white font-black text-xs rounded-full flex items-center justify-center border-2 border-slate-900 shadow-sm transition-transform active:scale-90" title="Cerrar">✕</button>
+
+    <!-- Bubble Pointer (Tail) -->
+    <div class="absolute -bottom-2.5 left-6 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[10px] border-t-slate-900"></div>
+    <div class="absolute -bottom-1.5 left-6 w-0 h-0 border-l-[7px] border-l-transparent border-r-[7px] border-r-transparent border-t-[9px] border-t-white"></div>
+
+    <div>
+      <p id="mascotBubbleText" class="text-xs font-black text-slate-800 leading-snug">Tu examen de la vista es 100% gratis en Vision Saludable.</p>
+      <div class="mt-2.5 flex items-center gap-1.5">
+        <button id="mascotBubbleCtaBtn" type="button" onclick="handleMascotCtaClick()" class="px-2.5 py-1 bg-sky-500 hover:bg-sky-600 active:bg-sky-700 text-white font-extrabold text-[11px] rounded-lg border border-slate-900 shadow-[2px_2px_0px_#0f172a] transition-all">
+          <span id="mascotBubbleCtaText">Agendar por WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE MASCOT ACTOR CONTAINER -->
+  <div id="mascotActor" class="relative flex flex-col items-center mascot-idle-breathe">
+    
+    <!-- INTERACTIVE TRIGGER FOR CLICK, DRAG & FLING -->
+    <div id="mascotInteractiveTrigger" class="pointer-events-auto cursor-grab active:cursor-grabbing relative select-none flex items-end justify-center" style="width: 120px; height: 95px;" title="Ojito - Vision Saludable">
+      
+      <!-- 1. SPRITE IDLE (Quieto saludando, sonriendo) -->
+      <img id="spriteIdle" src="ojito-idle.png" alt="Ojito Quieto" class="mascot-sprite absolute bottom-0 left-1/2 -translate-x-1/2 w-[82px] h-auto object-contain pointer-events-none select-none transition-transform" />
+
+      <!-- 2. SPRITE WHISTLE (Caminando despacio, silbando con notas) -->
+      <img id="spriteWhistle" src="ojito-whistle.png" alt="Ojito Silbando" class="mascot-sprite hidden absolute bottom-0 left-1/2 -translate-x-1/2 w-[76px] h-auto object-contain pointer-events-none select-none" />
+
+      <!-- 3. SPRITE PEEK (Espiando en la orilla detras del marco) -->
+      <img id="spritePeek" src="ojito-peek.png" alt="Ojito Espiando" class="mascot-sprite hidden absolute bottom-0 left-1/2 -translate-x-1/2 w-[68px] h-auto object-contain pointer-events-none select-none" />
+
+      <!-- 4. SPRITE RUN (Corriendo veloz con lineas de velocidad) -->
+      <img id="spriteRun" src="ojito-run.png" alt="Ojito Corriendo" class="mascot-sprite hidden absolute bottom-0 left-1/2 -translate-x-1/2 w-[96px] h-auto object-contain pointer-events-none select-none" />
+
+      <!-- 5. SPRITE PARACHUTE (Paracaidas a rayas rojo y blanco limpio) -->
+      <img id="spriteParachute" src="ojito-parachute.png" alt="Ojito Paracaidas" class="mascot-sprite hidden absolute bottom-0 left-1/2 -translate-x-1/2 w-[112px] h-auto object-contain pointer-events-none select-none" style="max-height: 155px;" />
+
+      <!-- 6. SPRITE BOUNCE (Resorte de impacto elastico y chispas) -->
+      <img id="spriteBounce" src="ojito-bounce.png" alt="Ojito Rebote" class="mascot-sprite hidden absolute bottom-0 left-1/2 -translate-x-1/2 w-[86px] h-auto object-contain pointer-events-none select-none" />
+
+      <!-- 7. SPRITE ANGRY (Enojado brazos cruzados ceño fruncido) -->
+      <img id="spriteAngry" src="ojito-angry.png" alt="Ojito Enojado" class="mascot-sprite hidden absolute bottom-0 left-1/2 -translate-x-1/2 w-[76px] h-auto object-contain pointer-events-none select-none" />
+
+      <!-- 8. SPRITE SAD (Triste llorando con lágrimas) -->
+      <img id="spriteSad" src="ojito-sad.png" alt="Ojito Triste" class="mascot-sprite hidden absolute bottom-0 left-1/2 -translate-x-1/2 w-[76px] h-auto object-contain pointer-events-none select-none" />
+
+      <!-- 9. SPRITE BORED (Aburrido mano en barbilla con zzz) -->
+      <img id="spriteBored" src="ojito-bored.png" alt="Ojito Aburrido" class="mascot-sprite hidden absolute bottom-0 left-1/2 -translate-x-1/2 w-[76px] h-auto object-contain pointer-events-none select-none" />
+
+      <!-- 10. SPRITE CAR (En carro rojo de carreras a toda velocidad) -->
+      <img id="spriteCar" src="ojito-car.png" alt="Ojito En Carro" class="mascot-sprite hidden absolute bottom-0 left-1/2 -translate-x-1/2 w-[125px] h-auto object-contain pointer-events-none select-none" />
+
+      <!-- Comic Sweat Drops -->
+      <div id="mascotSweatDrops" class="absolute -top-3 right-0 opacity-0 transition-opacity duration-200 pointer-events-none">
+        <svg class="w-6 h-6 overflow-visible" viewBox="0 0 24 24">
+          <path d="M 12 3 C 9 8, 7 11, 7 14 C 7 17.5, 9.5 20, 12 20 C 14.5 20, 17 17.5, 17 14 C 17 11, 15 8, 12 3 Z" fill="#38bdf8" stroke="#0f172a" stroke-width="2"></path>
+        </svg>
+      </div>
+
+      <!-- Comic Dizzy Stars -->
+      <div id="mascotDizzyStars" class="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 pointer-events-none orbit-stars-anim" style="width: 70px; height: 35px;">
+        <svg class="w-full h-full overflow-visible" viewBox="0 0 70 35">
+          <polygon points="12,2 14,7 19,8 15,12 16,17 12,14 8,17 9,12 5,8 10,7" fill="#facc15" stroke="#0f172a" stroke-width="1.5"></polygon>
+          <polygon points="56,3 58,8 63,9 59,13 60,18 56,15 52,18 53,13 49,9 54,8" fill="#facc15" stroke="#0f172a" stroke-width="1.5"></polygon>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MODAL ASISTENTE VIRTUAL DE OJITO -->
+<div id="avatarChatModal" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:justify-start p-4 sm:p-8 bg-slate-950/40 backdrop-blur-xs transition-all duration-300 opacity-0 pointer-events-none" onclick="closeAvatarModal()">
+  <div class="w-full max-w-sm bg-white rounded-3xl border-2 border-slate-900 shadow-[8px_8px_0px_#0f172a] overflow-hidden transform transition-all duration-300 scale-95 p-5 text-slate-800" onclick="event.stopPropagation()">
+    
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between pb-3 border-b-2 border-slate-100 mb-3">
+      <div class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-2xl bg-sky-100 border-2 border-slate-900 flex items-center justify-center p-1 shadow-[2px_2px_0px_#0f172a]">
+          <img src="ojito-idle.png" alt="Ojito Avatar" class="w-8 h-auto object-contain select-none" />
+        </div>
+        <div>
+          <h3 class="font-extrabold text-sm text-slate-900 flex items-center gap-1.5">
+            Ojito
+            <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          </h3>
+          <p class="text-[11px] text-slate-500 font-semibold">Mascota Oficial - Vision Saludable</p>
+        </div>
+      </div>
+      <button type="button" onclick="closeAvatarModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 border-2 border-slate-900 text-slate-900 font-black flex items-center justify-center text-sm shadow-[2px_2px_0px_#0f172a] transition-all">✕</button>
+    </div>
+
+    <!-- Modal Body -->
+    <div class="space-y-2.5">
+      <div class="bg-sky-50 rounded-2xl p-3 border border-sky-200">
+        <p class="text-xs text-sky-900 font-medium leading-relaxed">
+          Hola, soy <b>Ojito</b>. Te recuerdo que en <b>Vision Saludable</b> tu <b>examen de la vista es 100% GRATIS</b> y sin ningun compromiso.
+        </p>
+      </div>
+
+      <div class="bg-amber-50 rounded-2xl p-3 border border-amber-200">
+        <p class="text-xs text-amber-900 font-medium leading-relaxed">
+          Si manejas de noche, pregunta por nuestros lentes con <b>Bio-Filtro Antirreflejo Nocturno HD</b> para eliminar los molestos destellos de las luces.
+        </p>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <a href="https://wa.me/50241961630?text=Hola%20Vision%20Saludable,%20quiero%20agendar%20mi%20examen%20de%20la%20vista%20gratis" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 text-white font-extrabold text-xs rounded-xl border-2 border-slate-900 shadow-[3px_3px_0px_#0f172a] flex items-center justify-center gap-2 transition-all">
+        <span>Agendar por WhatsApp (4196-1630)</span>
+      </a>
+
+      <button type="button" onclick="closeAvatarModal(); if(typeof window.openVisor3D==='function') window.openVisor3D();" class="w-full py-2.5 px-4 bg-sky-500 hover:bg-sky-600 active:bg-sky-700 text-white font-extrabold text-xs rounded-xl border-2 border-slate-900 shadow-[3px_3px_0px_#0f172a] flex items-center justify-center gap-2 transition-all">
+        <span>Probar Visor 3D Interactivo</span>
+      </button>
+
+      <a href="#ubicacion" onclick="closeAvatarModal()" class="w-full py-2 px-4 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs rounded-xl border border-slate-300 flex items-center justify-center gap-1.5 transition-all">
+        <span>Ver Ubicacion en Maps y Waze</span>
+      </a>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="mt-3 text-center">
+      <p class="text-[10px] text-slate-400 font-medium">Vision Saludable - Atencion optometrica profesional</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function() {
+  const container = document.getElementById('mascotRootContainer');
+  const actor = document.getElementById('mascotActor');
+  const trigger = document.getElementById('mascotInteractiveTrigger');
+  const bubble = document.getElementById('mascotSpeechBubble');
+  const bubbleText = document.getElementById('mascotBubbleText');
+  const bubbleCtaBtn = document.getElementById('mascotBubbleCtaBtn');
+  const bubbleCtaText = document.getElementById('mascotBubbleCtaText');
+  const sweatDrops = document.getElementById('mascotSweatDrops');
+  const dizzyStars = document.getElementById('mascotDizzyStars');
+  const modal = document.getElementById('avatarChatModal');
+
+  const spriteIdle = document.getElementById('spriteIdle');
+  const spriteWhistle = document.getElementById('spriteWhistle');
+  const spritePeek = document.getElementById('spritePeek');
+  const spriteRun = document.getElementById('spriteRun');
+  const spriteParachute = document.getElementById('spriteParachute');
+  const spriteBounce = document.getElementById('spriteBounce');
+  const spriteAngry = document.getElementById('spriteAngry');
+  const spriteSad = document.getElementById('spriteSad');
+  const spriteBored = document.getElementById('spriteBored');
+  const spriteCar = document.getElementById('spriteCar');
+
+  function setSprite(name) {
+    if (spriteIdle) spriteIdle.classList.toggle('hidden', name !== 'idle');
+    if (spriteWhistle) spriteWhistle.classList.toggle('hidden', name !== 'whistle');
+    if (spritePeek) spritePeek.classList.toggle('hidden', name !== 'peek');
+    if (spriteRun) spriteRun.classList.toggle('hidden', name !== 'run');
+    if (spriteParachute) spriteParachute.classList.toggle('hidden', name !== 'parachute');
+    if (spriteBounce) spriteBounce.classList.toggle('hidden', name !== 'bounce');
+    if (spriteAngry) spriteAngry.classList.toggle('hidden', name !== 'angry');
+    if (spriteSad) spriteSad.classList.toggle('hidden', name !== 'sad');
+    if (spriteBored) spriteBored.classList.toggle('hidden', name !== 'bored');
+    if (spriteCar) spriteCar.classList.toggle('hidden', name !== 'car');
+  }
+
+  // State machine:
+  // 'idle' | 'whistling' | 'running_to_edge' | 'peeking_left' | 'peeking_right' | 'falling' | 'landing' | 'dragged' | 'flung' | 'sprinting' | 'car_racing' | 'wall_climbing' | 'bored' | 'angry' | 'sad'
+  let currentState = 'idle';
+  let theatricalTimer = null;
+  let bubbleTimeout = null;
+  let inactivityTimer = null;
+  let routineIndex = 0;
+
+  // Panic & Angry quotes (Sin Emojis)
+  const panicShouts = [
+    'Oye sueltame, se me van a caer los lentes.',
+    'Bajame al suelo y te regalo el examen de la vista.',
+    'Cuidado con la cornea, no me muevas tan fuerte.',
+    'Auxilio, me llevan secuestrado.',
+    'Por favor bajame de vuelta a la clinica.'
+  ];
+
+  const angryQuotes = [
+    'Oye, que falta de respeto con el asistente optico. Sueltame o no te calibro los lentes.',
+    'No me zarandees de esa manera, los aros de los lentes son finos y delicados.',
+    'Te recuerdo que soy una mascota profesional, no una pelota de hule.',
+    'Si me sigues molestando me voy en mi carro de carreras y te quedas sin descuento.'
+  ];
+
+  const boredQuotes = [
+    'Me aburro aqui parado en la esquina. Podrias al menos darme un clic o agendar tu examen gratis.',
+    'Te quedaste congelado viendo la pantalla. Parpadea un poco, que se te van a secar los ojos.',
+    'Llevas un buen rato sin mover el cursor. Aprovecha el tiempo y pide informes al WhatsApp.'
+  ];
+
+  const sadQuotes = [
+    'Nadie quiere agendar su examen gratis y mis lagrimas estan empanando los cristales.',
+    'Me ignoraste otra vez. Y yo que venia a regalarte el examen de agudeza visual.',
+    'Tantas horas programado en esta pagina y no me haces ni un clic en el WhatsApp.'
+  ];
+
+  // 4th Wall Breaking & Informative dialogues (Sin Emojis)
+  const messages = [
+    {
+      text: 'Se que estas detras de esa pantalla. Y tambien se que entrecerraste los ojos para leer esto. Ven por tu examen gratis.',
+      cta: 'Agendar cita gratis',
+      action: () => window.open('https://wa.me/50241961630?text=Hola%20Vision%20Saludable,%20deseo%20agendar%20mi%20examen%20de%20la%20vista%20gratis', '_blank')
+    },
+    {
+      text: 'Llevas varios minutos haciendo scroll en la pagina. Tu cornea te esta pidiendo un descanso o unos bio-filtros antirreflejo.',
+      cta: 'Ver bio-filtros',
+      action: () => {
+        const el = document.getElementById('salud-nocturna');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+    {
+      text: 'El cursor de tu mouse me esta apuntando otra vez. Mejor dale clic al boton y agenda tu cita al 4196-1630.',
+      cta: 'Escribir a WhatsApp',
+      action: () => window.open('https://wa.me/50241961630?text=Hola%20Vision%20Saludable,%20quisiera%20agendar%20mi%20cita', '_blank')
+    },
+    {
+      text: 'No me ignores, te estoy viendo desde la esquina de tu monitor con mis cristales de alta definicion.',
+      cta: 'Probar Visor 3D',
+      action: () => { if (typeof window.openVisor3D === 'function') window.openVisor3D(); }
+    },
+    {
+      text: 'Si estas leyendo esto en tu telefono con el brillo al maximo en la oscuridad, tus ojos estan sufriendo. Tenemos filtros para luz azul.',
+      cta: 'Ver filtros nocturnos',
+      action: () => {
+        const el = document.getElementById('salud-nocturna');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+    {
+      text: 'Puedo ver los pixeles de este sitio web con total claridad, pero tus ojos merecen ver el mundo real en alta definicion.',
+      cta: 'Consultar cristales',
+      action: () => window.open('https://wa.me/50241961630?text=Hola%20Vision%20Saludable,%20deseo%20informacion%20de%20cristales', '_blank')
+    },
+    {
+      text: 'Un secreto entre nosotros: el examen computarizado es 100% gratis y los aros tienen un ano de garantia.',
+      cta: 'Agendar cita gratis',
+      action: () => window.open('https://wa.me/50241961630?text=Hola%20Vision%20Saludable,%20quiero%20aprovechar%20el%20examen%20gratis', '_blank')
+    },
+    {
+      text: 'Estoy atrapado en este codigo HTML, pero tu si puedes salir de casa e ir a la clinica a estrenar lentes.',
+      cta: 'Ver ubicacion en mapa',
+      action: () => {
+        const el = document.getElementById('ubicacion');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+    {
+      text: 'Oye, parpadea un par de veces, que llevas mucho tiempo con la mirada fija en el monitor.',
+      cta: 'Agendar cita',
+      action: () => window.open('https://wa.me/50241961630?text=Hola%20Vision%20Saludable,%20deseo%20agendar%20mi%20cita', '_blank')
+    },
+    {
+      text: 'Si manejas de noche y las luces altas te encandilan, no es tu culpa, necesitas nuestros filtros nocturnos HD.',
+      cta: 'Ver bio-filtros HD',
+      action: () => {
+        const el = document.getElementById('salud-nocturna');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+    {
+      text: 'Aceptalo, unos aros nuevos te quedarian increibles para tu proxima salida o reunion.',
+      cta: 'Ver catalogo',
+      action: () => {
+        const el = document.getElementById('catalogo');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        else window.open('https://wa.me/50241961630?text=Hola%20Vision%20Saludable,%20deseo%20ver%20catalogo', '_blank');
+      }
+    }
+  ];
+
+  let currentMsgIndex = 0;
+  let currentAction = messages[0].action;
+
+  window.showSpeechBubble = function(index, customText) {
+    if (!bubble) return;
+    if (customText) {
+      if (bubbleText) bubbleText.textContent = customText;
+      if (bubbleCtaBtn) bubbleCtaBtn.style.display = 'none';
+    } else {
+      if (index === undefined) {
+        index = currentMsgIndex % messages.length;
+        currentMsgIndex++;
+      }
+      const item = messages[index];
+      currentAction = item.action;
+      if (bubbleText) bubbleText.textContent = item.text;
+      if (bubbleCtaBtn) bubbleCtaBtn.style.display = 'inline-flex';
+      if (bubbleCtaText) bubbleCtaText.textContent = item.cta;
+    }
+
+    bubble.classList.remove('opacity-0', 'pointer-events-none', 'scale-90');
+    bubble.classList.add('opacity-100', 'scale-100');
+
+    clearTimeout(bubbleTimeout);
+    bubbleTimeout = setTimeout(() => {
+      window.closeSpeechBubble(false);
+    }, customText ? 4500 : 7500);
+  };
+
+  window.closeSpeechBubble = function(userDismissed) {
+    if (!bubble) return;
+    bubble.classList.add('opacity-0', 'pointer-events-none', 'scale-90');
+    bubble.classList.remove('opacity-100', 'scale-100');
+
+    if (userDismissed && currentState === 'idle') {
+      // User closed bubble -> Ojito enters sad pose
+      currentState = 'sad';
+      setSprite('sad');
+      const sadQuote = sadQuotes[Math.floor(Math.random() * sadQuotes.length)];
+      setTimeout(() => {
+        window.showSpeechBubble(0, sadQuote);
+        setTimeout(() => {
+          setSprite('idle');
+          currentState = 'idle';
+          resetInactivityTimer();
+        }, 3200);
+      }, 300);
+    }
+  };
+
+  window.handleMascotCtaClick = function() {
+    if (typeof currentAction === 'function') {
+      currentAction();
+    }
+    window.closeSpeechBubble(false);
+  };
+
+  window.openOjitoModal = function() {
+    window.closeSpeechBubble(false);
+    if (!modal) return;
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.classList.add('opacity-100', 'pointer-events-auto');
+    const card = modal.querySelector('.transform');
+    if (card) {
+      card.classList.remove('scale-95');
+      card.classList.add('scale-100');
+    }
+  };
+
+  window.closeAvatarModal = function() {
+    if (!modal) return;
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modal.classList.remove('opacity-100', 'pointer-events-auto');
+    const card = modal.querySelector('.transform');
+    if (card) {
+      card.classList.add('scale-95');
+      card.classList.remove('scale-100');
+    }
+  };
+
+  // Reset inactivity detection (Bored Trigger after 14s idle)
+  function resetInactivityTimer() {
+    clearTimeout(inactivityTimer);
+    inactivityTimer = setTimeout(() => {
+      if (currentState === 'idle' && (!modal || !modal.classList.contains('opacity-100'))) {
+        currentState = 'bored';
+        setSprite('bored');
+        const quote = boredQuotes[Math.floor(Math.random() * boredQuotes.length)];
+        window.showSpeechBubble(0, quote);
+
+        setTimeout(() => {
+          if (currentState === 'bored') {
+            setSprite('idle');
+            currentState = 'idle';
+            resetInactivityTimer();
+          }
+        }, 4500);
+      }
+    }, 14000);
+  }
+
+  // =========================================================================
+  // 3 MULTI-ACT THEATRICAL ROUTINES:
+  // Routine 0: Whistle Walk -> Peek Left & Right -> Sky Parachute -> Spring Bounce
+  // Routine 1: Zoom en Carro Deportivo (Red Sports Car racing across screen)
+  // Routine 2: Escalar la Pared hasta el techo -> Salto en Paracaídas -> Rebote
+  // =========================================================================
+  function executeNextTheatricalRoutine() {
+    if (currentState !== 'idle' || (modal && modal.classList.contains('opacity-100'))) {
+      scheduleNextCycle();
+      return;
+    }
+
+    const routine = routineIndex % 3;
+    routineIndex++;
+
+    if (routine === 0) {
+      // --- ROUTINE 0: WHISTLE & SPYING ---
+      currentState = 'whistling';
+      window.closeSpeechBubble(false);
+      setSprite('whistle');
+      actor.classList.remove('mascot-idle-breathe', 'mascot-spring-bounce');
+      actor.classList.add('mascot-walk-bob');
+
+      const walkDistance = Math.min(window.innerWidth * 0.28, 260);
+      container.style.transition = 'left 2.8s cubic-bezier(0.37, 0, 0.63, 1)';
+      container.style.left = walkDistance + 'px';
+
+      setTimeout(() => {
+        currentState = 'running_to_edge';
+        setSprite('run');
+        actor.classList.remove('mascot-walk-bob');
+        actor.classList.add('mascot-sprint-lean');
+
+        actor.style.transform = 'scaleX(-1)';
+        container.style.transition = 'left 0.85s cubic-bezier(0.4, 0, 0.2, 1)';
+        container.style.left = '-120px';
+
+        setTimeout(() => {
+          // --- ACTO 3: SE ASOMA ESPIANDO POR LA IZQUIERDA (ARRIBA Y METIDO A LA PARED) ---
+          currentState = 'peeking_left';
+          actor.style.transform = 'scaleX(1)';
+          actor.classList.remove('mascot-sprint-lean');
+          setSprite('peek');
+
+          // Ubicado arriba en la pantalla (~24vh) y metido a la pared para asomar solo el ojo y la mano
+          container.style.transition = 'none';
+          container.style.left = '-28px';
+          container.style.right = 'auto';
+          container.style.top = '24vh';
+          container.style.bottom = 'auto';
+
+          if (bubble) {
+            bubble.style.left = '40px';
+            bubble.style.right = 'auto';
+            bubble.style.bottom = '-15px';
+          }
+
+          window.showSpeechBubble(0, 'Chequeando desde arriba si alguien necesita lentes por aqui...');
+
+          setTimeout(() => {
+            // --- ACTO 4: SE ESCONDE Y REAPARECE ESPIANDO POR LA DERECHA (ARRIBA Y METIDO) ---
+            currentState = 'peeking_right';
+            window.closeSpeechBubble(false);
+
+            container.style.transition = 'left 0.3s ease-in';
+            container.style.left = '-120px';
+
+            setTimeout(() => {
+              container.style.transition = 'none';
+              container.style.left = 'auto';
+              container.style.right = '-28px';
+              container.style.top = '27vh';
+              container.style.bottom = 'auto';
+              actor.style.transform = 'scaleX(-1)'; // mirando hacia adentro
+
+              if (bubble) {
+                bubble.style.left = 'auto';
+                bubble.style.right = '40px';
+                bubble.style.bottom = '-15px';
+              }
+
+              window.showSpeechBubble(0, 'Todo despejado por la derecha desde las alturas.');
+
+              setTimeout(() => {
+                // --- ACTO 5: SALTO EN PARACAÍDAS DESDE ARRIBA ---
+                currentState = 'falling';
+                window.closeSpeechBubble(false);
+
+                container.style.transition = 'right 0.3s ease-in';
+                container.style.right = '-120px';
+
+                setTimeout(() => {
+                  container.style.transition = 'none';
+                  container.style.right = 'auto';
+                  container.style.left = '24px';
+                  container.style.top = '-240px';
+                  container.style.bottom = 'auto';
+                  actor.style.transform = 'none';
+
+                  if (bubble) {
+                    bubble.style.left = '0px';
+                    bubble.style.right = 'auto';
+                    bubble.style.bottom = '112px';
+                  }
+
+                  setSprite('parachute');
+                  actor.classList.add('mascot-parachute-sway');
+
+                  const restingBottom = 24;
+                  const groundY = window.innerHeight - 105 - restingBottom;
+
+                  container.style.transition = 'top 2.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                  container.style.top = groundY + 'px';
+
+                  setTimeout(() => {
+                    currentState = 'landing';
+                    actor.classList.remove('mascot-parachute-sway');
+
+                    setSprite('bounce');
+                    actor.classList.add('mascot-spring-bounce');
+
+                    container.style.bottom = restingBottom + 'px';
+                    container.style.top = 'auto';
+
+                    window.showSpeechBubble(0, 'Aterrizaje perfecto con paracaidas y resorte.');
+
+                    setTimeout(() => {
+                      actor.classList.remove('mascot-spring-bounce');
+                      actor.classList.add('mascot-idle-breathe');
+                      setSprite('idle');
+                      currentState = 'idle';
+                      resetInactivityTimer();
+                      scheduleNextCycle();
+                    }, 750);
+
+                  }, 2600);
+
+                }, 400);
+
+              }, 2200);
+
+            }, 400);
+
+          }, 2200);
+
+        }, 850);
+
+      }, 2800);
+
+    } else if (routine === 1) {
+      // --- ROUTINE 1: ZOOM EN CARRO DEPORTIVO ROJO ---
+      currentState = 'car_racing';
+      window.closeSpeechBubble(false);
+      setSprite('car');
+      actor.classList.remove('mascot-idle-breathe', 'mascot-spring-bounce');
+      actor.classList.add('mascot-drive-bob');
+
+      window.showSpeechBubble(0, 'Bip bip, abran paso que voy tarde a la clinica.');
+
+      // Accelerate rapidly across screen from left to off-screen right
+      const fullWidth = window.innerWidth + 180;
+      container.style.transition = 'left 1.6s cubic-bezier(0.4, 0, 0.2, 1)';
+      container.style.left = fullWidth + 'px';
+
+      setTimeout(() => {
+        // Return driving backwards from right to left
+        actor.style.transform = 'scaleX(-1)';
+        container.style.transition = 'none';
+        container.style.left = (window.innerWidth + 100) + 'px';
+
+        setTimeout(() => {
+          container.style.transition = 'left 1.5s cubic-bezier(0.4, 0, 0.2, 1)';
+          container.style.left = '24px';
+
+          setTimeout(() => {
+            actor.style.transform = 'scaleX(1)';
+            actor.classList.remove('mascot-drive-bob');
+            actor.classList.add('mascot-idle-breathe');
+            setSprite('idle');
+            currentState = 'idle';
+
+            window.showSpeechBubble(0, 'Llegue a tiempo. Recuerda que tu examen es gratis.');
+            resetInactivityTimer();
+            scheduleNextCycle();
+          }, 1500);
+
+        }, 150);
+
+      }, 1650);
+
+    } else {
+      // --- ROUTINE 2: ESCALAR LA PARED VERTICAL Y SALTO EN PARACAÍDAS ---
+      currentState = 'wall_climbing';
+      window.closeSpeechBubble(false);
+      setSprite('run');
+      actor.classList.remove('mascot-idle-breathe', 'mascot-spring-bounce');
+      actor.classList.add('mascot-sprint-lean');
+
+      // Run towards left border
+      container.style.transition = 'left 0.7s ease-in';
+      container.style.left = '4px';
+
+      setTimeout(() => {
+        // Turn vertically and climb wall up to the ceiling
+        actor.classList.remove('mascot-sprint-lean');
+        actor.classList.add('mascot-wall-climb');
+
+        window.showSpeechBubble(0, 'Escalando hasta arriba de tu pantalla...');
+
+        const climbTop = 80;
+        container.style.transition = 'bottom 2.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        container.style.bottom = (window.innerHeight - 150) + 'px';
+
+        setTimeout(() => {
+          actor.classList.remove('mascot-wall-climb');
+          actor.style.transform = 'none';
+
+          // Sky drop from ceiling with parachute
+          currentState = 'falling';
+          setSprite('parachute');
+          actor.classList.add('mascot-parachute-sway');
+
+          const restingBottom = 24;
+          const groundY = window.innerHeight - 105 - restingBottom;
+
+          container.style.transition = 'bottom 2.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+          container.style.bottom = restingBottom + 'px';
+
+          setTimeout(() => {
+            currentState = 'landing';
+            actor.classList.remove('mascot-parachute-sway');
+
+            setSprite('bounce');
+            actor.classList.add('mascot-spring-bounce');
+
+            window.showSpeechBubble(0, 'Aterrizaje perfecto con resorte de alta precision.');
+
+            setTimeout(() => {
+              actor.classList.remove('mascot-spring-bounce');
+              actor.classList.add('mascot-idle-breathe');
+              setSprite('idle');
+              currentState = 'idle';
+              resetInactivityTimer();
+              scheduleNextCycle();
+            }, 750);
+
+          }, 2800);
+
+        }, 2400);
+
+      }, 700);
+    }
+  }
+
+  function scheduleNextCycle() {
+    clearTimeout(theatricalTimer);
+    theatricalTimer = setTimeout(executeNextTheatricalRoutine, 22000);
+  }
+
+  // =========================================================================
+  // 2. INTERACTION ENGINE: DRAG, STRUGGLE, FLING, POKE, SPRINT, DIZZY & ANGRY
+  // =========================================================================
+  let isDragging = false;
+  let startX = 0, startY = 0;
+  let elemStartX = 0, elemStartY = 0;
+  let prevX = 0, prevY = 0;
+  let lastTime = 0;
+  let vx = 0, vy = 0;
+  let clickCount = 0;
+  let clickResetTimer = null;
+  let shakeDirection = 0;
+  let shakeCount = 0;
+  let dragStartTime = 0;
+
+  function onPointerDown(e) {
+    if (currentState === 'running_to_edge' || currentState === 'falling' || currentState === 'car_racing' || currentState === 'wall_climbing') return;
+
+    resetInactivityTimer();
+
+    const clientX = e.clientX !== undefined ? e.clientX : (e.touches && e.touches[0].clientX);
+    const clientY = e.clientY !== undefined ? e.clientY : (e.touches && e.touches[0].clientY);
+    if (clientX === undefined) return;
+
+    startX = clientX;
+    startY = clientY;
+    prevX = clientX;
+    prevY = clientY;
+    lastTime = performance.now();
+    dragStartTime = performance.now();
+    vx = 0;
+    vy = 0;
+    shakeCount = 0;
+    isDragging = false;
+
+    const rect = container.getBoundingClientRect();
+    elemStartX = rect.left;
+    elemStartY = rect.top;
+
+    document.addEventListener('mousemove', onPointerMove, { passive: false });
+    document.addEventListener('mouseup', onPointerUp);
+    document.addEventListener('touchmove', onPointerMove, { passive: false });
+    document.addEventListener('touchend', onPointerUp);
+  }
+
+  function onPointerMove(e) {
+    resetInactivityTimer();
+
+    const clientX = e.clientX !== undefined ? e.clientX : (e.touches && e.touches[0].clientX);
+    const clientY = e.clientY !== undefined ? e.clientY : (e.touches && e.touches[0].clientY);
+    if (clientX === undefined) return;
+
+    const deltaX = clientX - startX;
+    const deltaY = clientY - startY;
+
+    if (!isDragging && (Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5)) {
+      isDragging = true;
+      currentState = 'dragged';
+      window.closeSpeechBubble(false);
+      clearTimeout(theatricalTimer);
+
+      actor.classList.remove('mascot-idle-breathe', 'mascot-parachute-sway', 'mascot-spring-bounce', 'mascot-walk-bob', 'mascot-drive-bob', 'mascot-wall-climb');
+      actor.classList.add('mascot-is-dragged');
+      setSprite('run');
+      if (sweatDrops) sweatDrops.style.opacity = '1';
+
+      container.style.transition = 'none';
+
+      const shout = panicShouts[Math.floor(Math.random() * panicShouts.length)];
+      window.showSpeechBubble(0, shout);
+    }
+
+    if (isDragging) {
+      if (e.cancelable) e.preventDefault();
+
+      const now = performance.now();
+      const dt = Math.max(1, now - lastTime);
+      vx = (clientX - prevX) / dt;
+      vy = (clientY - prevY) / dt;
+      lastTime = now;
+
+      // Shake detection
+      if (Math.abs(vx) > 0.6) {
+        const dir = vx > 0 ? 1 : -1;
+        if (dir !== shakeDirection) {
+          shakeDirection = dir;
+          shakeCount++;
+        }
+      }
+
+      prevX = clientX;
+      prevY = clientY;
+
+      const tilt = Math.max(-35, Math.min(35, -vx * 24));
+      actor.style.transform = `rotate(${tilt}deg)`;
+
+      const newX = Math.max(10, Math.min(window.innerWidth - 120, elemStartX + deltaX));
+      const newY = Math.max(10, Math.min(window.innerHeight - 120, elemStartY + deltaY));
+      container.style.left = newX + 'px';
+      container.style.top = newY + 'px';
+      container.style.right = 'auto';
+      container.style.bottom = 'auto';
+    }
+  }
+
+  function onPointerUp() {
+    document.removeEventListener('mousemove', onPointerMove);
+    document.removeEventListener('mouseup', onPointerUp);
+    document.removeEventListener('touchmove', onPointerMove);
+    document.removeEventListener('touchend', onPointerUp);
+
+    if (isDragging) {
+      isDragging = false;
+      actor.classList.remove('mascot-is-dragged');
+      actor.style.transform = '';
+      if (sweatDrops) sweatDrops.style.opacity = '0';
+
+      const speed = Math.hypot(vx, vy);
+      const isDizzy = shakeCount >= 5;
+      const dragDuration = performance.now() - dragStartTime;
+
+      // If dragged/shaken for a long time -> ANGRY POSE!
+      if (dragDuration > 2200 || isDizzy) {
+        currentState = 'angry';
+        setSprite('angry');
+        const quote = angryQuotes[Math.floor(Math.random() * angryQuotes.length)];
+        window.showSpeechBubble(0, quote);
+
+        setTimeout(() => {
+          setSprite('idle');
+          currentState = 'idle';
+          resetInactivityTimer();
+        }, 3800);
+      }
+
+      // --- AVENTARLO POR LOS CIELOS (FLING PHYSICS) ---
+      if (speed > 0.4 || vy < -0.35) {
+        currentState = 'flung';
+        window.closeSpeechBubble(false);
+
+        const rect = container.getBoundingClientRect();
+        const flingDistX = Math.max(-window.innerWidth * 0.4, Math.min(window.innerWidth * 0.4, vx * 280));
+        const flingDistY = Math.max(-window.innerHeight * 0.5, Math.min(100, vy * 220));
+
+        const peakX = Math.max(16, Math.min(window.innerWidth - 130, rect.left + flingDistX));
+        const peakY = Math.max(20, rect.top + flingDistY);
+
+        container.style.transition = 'left 0.45s ease-out, top 0.45s cubic-bezier(0.1, 0.9, 0.2, 1)';
+        container.style.left = peakX + 'px';
+        container.style.top = peakY + 'px';
+        actor.style.transition = 'transform 0.45s ease-out';
+        actor.style.transform = `rotate(${vx > 0 ? 720 : -720}deg)`;
+
+        const highThrow = peakY < window.innerHeight * 0.48;
+
+        setTimeout(() => {
+          actor.style.transition = '';
+          actor.style.transform = '';
+
+          if (highThrow) {
+            setSprite('parachute');
+            actor.classList.add('mascot-parachute-sway');
+            window.showSpeechBubble(0, 'Abriendo paracaidas de emergencia.');
+          }
+
+          const restingBottom = 24;
+          const groundY = window.innerHeight - 105 - restingBottom;
+          container.style.transition = `top ${highThrow ? '1.5s' : '0.55s'} cubic-bezier(0.5, 0, 0.75, 0)`;
+          container.style.top = groundY + 'px';
+
+          setTimeout(() => {
+            actor.classList.remove('mascot-parachute-sway');
+            container.style.bottom = restingBottom + 'px';
+            container.style.top = 'auto';
+
+            setSprite('bounce');
+            actor.classList.add('mascot-spring-bounce');
+
+            if (isDizzy) {
+              actor.classList.add('mascot-is-dizzy');
+              if (dizzyStars) dizzyStars.style.opacity = '1';
+              window.showSpeechBubble(0, 'Todo me da vueltas, no me sacudas tan fuerte.');
+            } else {
+              window.showSpeechBubble(0, 'Menos mal cai con el resorte de rebote.');
+            }
+
+            setTimeout(() => {
+              actor.classList.remove('mascot-spring-bounce');
+              actor.classList.add('mascot-idle-breathe');
+              setSprite('idle');
+
+              if (isDizzy) {
+                setTimeout(() => {
+                  actor.classList.remove('mascot-is-dizzy');
+                  if (dizzyStars) dizzyStars.style.opacity = '0';
+                }, 3200);
+              }
+              currentState = 'idle';
+              resetInactivityTimer();
+              scheduleNextCycle();
+            }, 750);
+
+          }, highThrow ? 1500 : 550);
+
+        }, 450);
+
+      } else {
+        // Gentle Drop to ground
+        const restingBottom = 24;
+        const groundY = window.innerHeight - 105 - restingBottom;
+
+        container.style.transition = 'top 0.4s cubic-bezier(0.5, 0, 0.75, 0)';
+        container.style.top = groundY + 'px';
+
+        setTimeout(() => {
+          container.style.bottom = restingBottom + 'px';
+          container.style.top = 'auto';
+
+          setSprite('bounce');
+          actor.classList.add('mascot-spring-bounce');
+          window.showSpeechBubble(0, 'Gracias por ponerme a salvo en el suelo.');
+
+          setTimeout(() => {
+            actor.classList.remove('mascot-spring-bounce');
+            actor.classList.add('mascot-idle-breathe');
+            setSprite('idle');
+            currentState = 'idle';
+            resetInactivityTimer();
+            scheduleNextCycle();
+          }, 700);
+        }, 400);
+      }
+
+    } else {
+      // --- CLIC INTERACTIONS (POKE / SPRINT / MODAL) ---
+      clickCount++;
+      clearTimeout(clickResetTimer);
+
+      if (clickCount >= 2) {
+        clickCount = 0;
+        executeRoadrunnerSprint();
+      } else {
+        clickResetTimer = setTimeout(() => {
+          clickCount = 0;
+          executePokeReaction();
+        }, 280);
+      }
+    }
+  }
+
+  // --- INTERACTION: PICARLE EL OJO / COSQUILLAS ---
+  function executePokeReaction() {
+    if (currentState !== 'idle') return;
+
+    setSprite('bounce');
+    actor.classList.remove('mascot-idle-breathe');
+    actor.classList.add('mascot-spring-bounce');
+
+    window.showSpeechBubble(0, 'Me haces cosquillas en la cornea.');
+
+    setTimeout(() => {
+      actor.classList.remove('mascot-spring-bounce');
+      actor.classList.add('mascot-idle-breathe');
+      setSprite('idle');
+      setTimeout(window.openOjitoModal, 400);
+    }, 750);
+  }
+
+  // --- INTERACTION: ASUSTARLO Y SALIR CORRIENDO ---
+  function executeRoadrunnerSprint() {
+    if (currentState !== 'idle') return;
+    currentState = 'sprinting';
+    window.closeSpeechBubble(false);
+    clearTimeout(theatricalTimer);
+
+    setSprite('run');
+    actor.classList.remove('mascot-idle-breathe');
+    actor.classList.add('mascot-sprint-lean');
+
+    window.showSpeechBubble(0, 'A correr por salud visual.');
+
+    const maxSprintX = Math.min(window.innerWidth * 0.48, 520);
+    container.style.transition = 'left 1.4s ease-in-out';
+    container.style.left = maxSprintX + 'px';
+
+    setTimeout(() => {
+      actor.style.transform = 'scaleX(-1)';
+      container.style.left = '24px';
+
+      setTimeout(() => {
+        actor.style.transform = 'scaleX(1)';
+        actor.classList.remove('mascot-sprint-lean');
+        actor.classList.add('mascot-idle-breathe');
+        setSprite('idle');
+
+        window.showSpeechBubble(0, 'Buen cardio. Recuerda agendar tu examen gratis.');
+        currentState = 'idle';
+        resetInactivityTimer();
+        scheduleNextCycle();
+      }, 1400);
+
+    }, 1400);
+  }
+
+  if (trigger) {
+    trigger.addEventListener('mousedown', onPointerDown);
+    trigger.addEventListener('touchstart', onPointerDown, { passive: true });
+  }
+
+  // Inactivity tracking: mouse moves on window resets boredom
+  window.addEventListener('mousemove', resetInactivityTimer, { passive: true });
+  window.addEventListener('scroll', resetInactivityTimer, { passive: true });
+  resetInactivityTimer();
+  scheduleNextCycle();
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      window.closeAvatarModal();
+      window.closeSpeechBubble(false);
+    }
+  });
+
+})();
+</script>
+
+<!-- Floating WhatsApp Action Button -->
+<a href="https://wa.me/50241961630?text=Hola%20Visi%C3%B3n%20Saludable,%20quisiera%20agendar%20mi%20examen%20visual%20gratis." target="_blank" class="fixed bottom-6 right-6 z-40 flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-4 py-3 rounded-full shadow-[0_8px_25px_rgba(37,211,102,0.45)] transition-all duration-300 hover:scale-105 group cursor-pointer" title="Escríbenos a WhatsApp: 4196-1630">
+  <svg class="w-6 h-6 fill-current flex-shrink-0" viewBox="0 0 24 24">
+    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.101.005.232-.039.362.274.144.346.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-10.416c-4.409 0-8 3.591-8 8 0 1.457.396 2.824 1.085 4.004l-1.144 4.181 4.298-1.127c1.135.632 2.441.982 3.761.982 4.409 0 8-3.591 8-8s-3.591-8-8-8z"/>
+  </svg>
+  <span class="text-xs font-bold tracking-wide hidden sm:inline">WhatsApp 4196-1630</span>
+</a>
+</body></html>
