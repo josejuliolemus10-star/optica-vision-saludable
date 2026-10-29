@@ -318,13 +318,13 @@
       transform-origin: center bottom;
     }
 
-    /* 7. Wall Climbing Movement */
+    /* 7. Wall Climbing Movement (Upright Cartoon Climber, No Inversion) */
     @keyframes mascotWallClimbAnim {
-      0%, 100% { transform: rotate(-90deg) translateY(0px); }
-      50% { transform: rotate(-90deg) translateY(-4px); }
+      0%, 100% { transform: translateY(0px) scale(1) rotate(-4deg); }
+      50% { transform: translateY(-7px) scaleY(1.06) scaleX(0.96) rotate(4deg); }
     }
     .mascot-wall-climb {
-      animation: mascotWallClimbAnim 0.25s ease-in-out infinite;
+      animation: mascotWallClimbAnim 0.18s ease-in-out infinite;
     }
 
     /* 8. Drag Forcejeo (Struggle) */
@@ -1581,7 +1581,7 @@
         </div>
         <div>
           <h3 class="text-base font-bold text-slate-900 leading-tight">Visión Saludable</h3>
-          <p class="text-xs text-slate-500">Entrega en sucursal • Examen Gratis</p>
+          <p class="text-xs text-slate-500">C.C. Plaza Palmeras, Local #29, Escuintla • Examen Gratis</p>
         </div>
       </div>
       <a href="https://wa.me/50241961630?text=Hola%20Visi%C3%B3n%20Saludable,%20quisiera%20consultar%20la%20direcci%C3%B3n%20exacta." target="_blank" class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200 hover:bg-emerald-100 transition-colors flex items-center gap-1 shadow-xs">
@@ -1593,9 +1593,9 @@
     <!-- Mapa Interactivo Centrado -->
     <div class="w-full flex-1 my-3 rounded-2xl overflow-hidden border border-sky-100/90 shadow-inner relative bg-slate-100 min-h-[160px]">
       <iframe 
-        title="Ubicación Visión Saludable"
+        title="Ubicación Visión Saludable - Plaza Palmeras Escuintla"
         class="w-full h-full border-0"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123533.91136423376!2d-90.58983949826317!3d14.62843464293933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a180655c3345%3A0x4a72c7815b867b25!2sGuatemala%20City%2C%20Guatemala!5e0!3m2!1sen!2sgt!4v1700000000000!5m2!1sen!2sgt" 
+        src="https://maps.google.com/maps?q=Centro+Comercial+Plaza+Palmeras,+Escuintla,+Guatemala&t=&z=16&ie=UTF8&iwloc=&output=embed" 
         allowfullscreen="" 
         loading="lazy" 
         referrerpolicy="no-referrer-when-downgrade">
@@ -1606,7 +1606,7 @@
     <div class="pt-2">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
         <!-- Botón Google Maps -->
-        <a href="https://maps.google.com/?q=Optica+Vision+Saludable" target="_blank" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-bold shadow-xs hover:shadow transition-all group">
+        <a href="https://maps.google.com/?q=Centro+Comercial+Plaza+Palmeras+Escuintla+Guatemala" target="_blank" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-bold shadow-xs hover:shadow transition-all group">
           <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#EA4335"/>
             <circle cx="12" cy="9" r="2.5" fill="#FFFFFF"/>
@@ -1615,7 +1615,7 @@
         </a>
 
         <!-- Botón Waze -->
-        <a href="https://waze.com/ul?q=Optica%20Vision%20Saludable" target="_blank" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-[#33ccff] hover:bg-[#29b8e6] text-slate-900 text-xs sm:text-sm font-bold shadow-xs hover:shadow transition-all">
+        <a href="https://waze.com/ul?q=Plaza%20Palmeras%20Escuintla&navigate=yes" target="_blank" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-[#33ccff] hover:bg-[#29b8e6] text-slate-900 text-xs sm:text-sm font-bold shadow-xs hover:shadow transition-all">
           <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12.003 2c-5.523 0-10 4.477-10 10 0 2.52 1.028 4.8 2.688 6.476L3.5 22l3.856-1.077c1.406.697 2.986 1.077 4.647 1.077 5.523 0 10-4.477 10-10s-4.477-10-10-10zm-3 8a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm6 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-3 7c-2.03 0-3.5-1.5-3.5-1.5a.75.75 0 0 1 1.06-1.06s1.08 1.06 2.44 1.06 2.44-1.06 2.44-1.06a.75.75 0 1 1 1.06 1.06S14.033 17 12.003 17z"/>
           </svg>
@@ -1623,7 +1623,7 @@
         </a>
       </div>
       <p class="text-center text-[11px] text-slate-500 mt-2 font-medium">
-        ¿Deseas confirmar la ruta? Escríbenos al WhatsApp: <strong class="text-sky-600 font-bold">4196-1630</strong>
+        ¿Deseas confirmar la ruta? Escríbenos al WhatsApp: <strong class="text-sky-600 font-bold">4196-1630</strong> (Local #29, Plaza Palmeras, Escuintla)
       </p>
     </div>
 
@@ -1737,9 +1737,13 @@
     <!-- Close button -->
     <button type="button" onclick="closeSpeechBubble(true)" class="absolute -top-2 -right-2 w-6 h-6 bg-rose-500 hover:bg-rose-600 text-white font-black text-xs rounded-full flex items-center justify-center border-2 border-slate-900 shadow-sm transition-transform active:scale-90" title="Cerrar">✕</button>
 
-    <!-- Bubble Pointer (Tail) -->
-    <div class="absolute -bottom-2.5 left-6 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[10px] border-t-slate-900"></div>
-    <div class="absolute -bottom-1.5 left-6 w-0 h-0 border-l-[7px] border-l-transparent border-r-[7px] border-r-transparent border-t-[9px] border-t-white"></div>
+    <!-- Bubble Pointer (Bottom Tail) -->
+    <div id="bubbleTailBottom" class="absolute -bottom-2.5 left-6 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[10px] border-t-slate-900"></div>
+    <div id="bubbleTailBottomInner" class="absolute -bottom-1.5 left-6 w-0 h-0 border-l-[7px] border-l-transparent border-r-[7px] border-r-transparent border-t-[9px] border-t-white"></div>
+
+    <!-- Bubble Pointer (Top Tail when bubble is below Ojito) -->
+    <div id="bubbleTailTop" class="hidden absolute -top-2.5 left-6 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-b-[10px] border-b-slate-900"></div>
+    <div id="bubbleTailTopInner" class="hidden absolute -top-1.5 left-6 w-0 h-0 border-l-[7px] border-l-transparent border-r-[7px] border-r-transparent border-b-[9px] border-b-white"></div>
 
     <div>
       <p id="mascotBubbleText" class="text-xs font-black text-slate-800 leading-snug">Tu examen de la vista es 100% gratis en Vision Saludable.</p>
@@ -1876,6 +1880,11 @@
   const dizzyStars = document.getElementById('mascotDizzyStars');
   const modal = document.getElementById('avatarChatModal');
 
+  const bubbleTailBottom = document.getElementById('bubbleTailBottom');
+  const bubbleTailBottomInner = document.getElementById('bubbleTailBottomInner');
+  const bubbleTailTop = document.getElementById('bubbleTailTop');
+  const bubbleTailTopInner = document.getElementById('bubbleTailTopInner');
+
   const spriteIdle = document.getElementById('spriteIdle');
   const spriteWhistle = document.getElementById('spriteWhistle');
   const spritePeek = document.getElementById('spritePeek');
@@ -1900,8 +1909,59 @@
     if (spriteCar) spriteCar.classList.toggle('hidden', name !== 'car');
   }
 
+  // Anchor and tail management for speech bubble so text NEVER clips off-screen
+  function setBubbleAnchor(position) {
+    if (!bubble) return;
+    bubble.classList.remove('origin-bottom-left', 'origin-bottom-right', 'origin-top-left', 'origin-top-right');
+    
+    if (position === 'bottom') {
+      // Ojito is near the top/ceiling: place bubble BELOW him so it never clips the top
+      bubble.style.top = '105px';
+      bubble.style.bottom = 'auto';
+      bubble.style.left = '0px';
+      bubble.style.right = 'auto';
+      bubble.classList.add('origin-top-left');
+      if (bubbleTailBottom) bubbleTailBottom.classList.add('hidden');
+      if (bubbleTailBottomInner) bubbleTailBottomInner.classList.add('hidden');
+      if (bubbleTailTop) bubbleTailTop.classList.remove('hidden');
+      if (bubbleTailTopInner) bubbleTailTopInner.classList.remove('hidden');
+    } else if (position === 'left_peek') {
+      // Ojito is tucked in left wall: place bubble to the right and below so no letters clip
+      bubble.style.top = '95px';
+      bubble.style.bottom = 'auto';
+      bubble.style.left = '65px';
+      bubble.style.right = 'auto';
+      bubble.classList.add('origin-top-left');
+      if (bubbleTailBottom) bubbleTailBottom.classList.add('hidden');
+      if (bubbleTailBottomInner) bubbleTailBottomInner.classList.add('hidden');
+      if (bubbleTailTop) bubbleTailTop.classList.remove('hidden');
+      if (bubbleTailTopInner) bubbleTailTopInner.classList.remove('hidden');
+    } else if (position === 'right_peek') {
+      // Ojito is tucked in right wall: place bubble to the left and below so no letters clip
+      bubble.style.top = '95px';
+      bubble.style.bottom = 'auto';
+      bubble.style.left = 'auto';
+      bubble.style.right = '65px';
+      bubble.classList.add('origin-top-right');
+      if (bubbleTailBottom) bubbleTailBottom.classList.add('hidden');
+      if (bubbleTailBottomInner) bubbleTailBottomInner.classList.add('hidden');
+      if (bubbleTailTop) bubbleTailTop.classList.remove('hidden');
+      if (bubbleTailTopInner) bubbleTailTopInner.classList.remove('hidden');
+    } else {
+      // Normal: bubble sits above Ojito at bottom corner
+      bubble.style.top = 'auto';
+      bubble.style.bottom = '112px';
+      bubble.style.left = '0px';
+      bubble.style.right = 'auto';
+      bubble.classList.add('origin-bottom-left');
+      if (bubbleTailBottom) bubbleTailBottom.classList.remove('hidden');
+      if (bubbleTailBottomInner) bubbleTailBottomInner.classList.remove('hidden');
+      if (bubbleTailTop) bubbleTailTop.classList.add('hidden');
+      if (bubbleTailTopInner) bubbleTailTopInner.classList.add('hidden');
+    }
+  }
+
   // State machine:
-  // 'idle' | 'whistling' | 'running_to_edge' | 'peeking_left' | 'peeking_right' | 'falling' | 'landing' | 'dragged' | 'flung' | 'sprinting' | 'car_racing' | 'wall_climbing' | 'bored' | 'angry' | 'sad'
   let currentState = 'idle';
   let theatricalTimer = null;
   let bubbleTimeout = null;
@@ -1980,7 +2040,7 @@
       action: () => window.open('https://wa.me/50241961630?text=Hola%20Vision%20Saludable,%20quiero%20aprovechar%20el%20examen%20gratis', '_blank')
     },
     {
-      text: 'Estoy atrapado en este codigo HTML, pero tu si puedes salir de casa e ir a la clinica a estrenar lentes.',
+      text: 'Estamos ubicados en C.C. Plaza Palmeras, Local 29, Escuintla. Ven a conocer la clinica y a estrenar tus aros.',
       cta: 'Ver ubicacion en mapa',
       action: () => {
         const el = document.getElementById('ubicacion');
@@ -2046,11 +2106,11 @@
     bubble.classList.remove('opacity-100', 'scale-100');
 
     if (userDismissed && currentState === 'idle') {
-      // User closed bubble -> Ojito enters sad pose
       currentState = 'sad';
       setSprite('sad');
       const sadQuote = sadQuotes[Math.floor(Math.random() * sadQuotes.length)];
       setTimeout(() => {
+        setBubbleAnchor('normal');
         window.showSpeechBubble(0, sadQuote);
         setTimeout(() => {
           setSprite('idle');
@@ -2098,6 +2158,7 @@
       if (currentState === 'idle' && (!modal || !modal.classList.contains('opacity-100'))) {
         currentState = 'bored';
         setSprite('bored');
+        setBubbleAnchor('normal');
         const quote = boredQuotes[Math.floor(Math.random() * boredQuotes.length)];
         window.showSpeechBubble(0, quote);
 
@@ -2114,9 +2175,9 @@
 
   // =========================================================================
   // 3 MULTI-ACT THEATRICAL ROUTINES:
-  // Routine 0: Whistle Walk -> Peek Left & Right -> Sky Parachute -> Spring Bounce
+  // Routine 0: Whistle Walk -> Sprint Right -> Peek Right & Left (Top, Safe Bubble) -> Parachute -> Bounce
   // Routine 1: Zoom en Carro Deportivo (Red Sports Car racing across screen)
-  // Routine 2: Escalar la Pared hasta el techo -> Salto en Paracaídas -> Rebote
+  // Routine 2: Carrera hacia la derecha -> Escalar Pared vertical erguido -> Paracaídas -> Rebote
   // =========================================================================
   function executeNextTheatricalRoutine() {
     if (currentState !== 'idle' || (modal && modal.classList.contains('opacity-100'))) {
@@ -2128,9 +2189,10 @@
     routineIndex++;
 
     if (routine === 0) {
-      // --- ROUTINE 0: WHISTLE & SPYING ---
+      // --- ROUTINE 0: WHISTLE, SPRINT RIGHT & HIGH WALL PEEKING ---
       currentState = 'whistling';
       window.closeSpeechBubble(false);
+      setBubbleAnchor('normal');
       setSprite('whistle');
       actor.classList.remove('mascot-idle-breathe', 'mascot-spring-bounce');
       actor.classList.add('mascot-walk-bob');
@@ -2140,68 +2202,58 @@
       container.style.left = walkDistance + 'px';
 
       setTimeout(() => {
+        // Sprint across towards right edge (natural right-facing run sprite!)
         currentState = 'running_to_edge';
         setSprite('run');
         actor.classList.remove('mascot-walk-bob');
         actor.classList.add('mascot-sprint-lean');
+        actor.style.transform = 'none';
 
-        actor.style.transform = 'scaleX(-1)';
-        container.style.transition = 'left 0.85s cubic-bezier(0.4, 0, 0.2, 1)';
-        container.style.left = '-120px';
+        container.style.transition = 'left 0.95s cubic-bezier(0.4, 0, 0.2, 1)';
+        container.style.left = (window.innerWidth + 80) + 'px';
 
         setTimeout(() => {
-          // --- ACTO 3: SE ASOMA ESPIANDO POR LA IZQUIERDA (ARRIBA Y METIDO A LA PARED) ---
-          currentState = 'peeking_left';
-          actor.style.transform = 'scaleX(1)';
+          // --- ACTO 3: SE ASOMA ESPIANDO POR LA DERECHA (ARRIBA EN LA PARED) ---
+          currentState = 'peeking_right';
           actor.classList.remove('mascot-sprint-lean');
           setSprite('peek');
+          actor.style.transform = 'scaleX(-1)'; // mirando hacia adentro
 
-          // Ubicado arriba en la pantalla (~24vh) y metido a la pared para asomar solo el ojo y la mano
           container.style.transition = 'none';
-          container.style.left = '-28px';
-          container.style.right = 'auto';
-          container.style.top = '24vh';
+          container.style.left = 'auto';
+          container.style.right = '-28px';
+          container.style.top = '25vh';
           container.style.bottom = 'auto';
 
-          if (bubble) {
-            bubble.style.left = '40px';
-            bubble.style.right = 'auto';
-            bubble.style.bottom = '-15px';
-          }
-
+          setBubbleAnchor('right_peek');
           window.showSpeechBubble(0, 'Chequeando desde arriba si alguien necesita lentes por aqui...');
 
           setTimeout(() => {
-            // --- ACTO 4: SE ESCONDE Y REAPARECE ESPIANDO POR LA DERECHA (ARRIBA Y METIDO) ---
-            currentState = 'peeking_right';
+            // --- ACTO 4: SE ESCONDE Y REAPARECE ESPIANDO POR LA IZQUIERDA ---
+            currentState = 'peeking_left';
             window.closeSpeechBubble(false);
 
-            container.style.transition = 'left 0.3s ease-in';
-            container.style.left = '-120px';
+            container.style.transition = 'right 0.3s ease-in';
+            container.style.right = '-120px';
 
             setTimeout(() => {
               container.style.transition = 'none';
-              container.style.left = 'auto';
-              container.style.right = '-28px';
-              container.style.top = '27vh';
+              container.style.right = 'auto';
+              container.style.left = '-28px';
+              container.style.top = '25vh';
               container.style.bottom = 'auto';
-              actor.style.transform = 'scaleX(-1)'; // mirando hacia adentro
+              actor.style.transform = 'scaleX(1)'; // mirando hacia adentro
 
-              if (bubble) {
-                bubble.style.left = 'auto';
-                bubble.style.right = '40px';
-                bubble.style.bottom = '-15px';
-              }
-
-              window.showSpeechBubble(0, 'Todo despejado por la derecha desde las alturas.');
+              setBubbleAnchor('left_peek');
+              window.showSpeechBubble(0, 'Todo despejado por la izquierda. Hora del paracaidas.');
 
               setTimeout(() => {
                 // --- ACTO 5: SALTO EN PARACAÍDAS DESDE ARRIBA ---
                 currentState = 'falling';
                 window.closeSpeechBubble(false);
 
-                container.style.transition = 'right 0.3s ease-in';
-                container.style.right = '-120px';
+                container.style.transition = 'left 0.3s ease-in';
+                container.style.left = '-120px';
 
                 setTimeout(() => {
                   container.style.transition = 'none';
@@ -2211,12 +2263,7 @@
                   container.style.bottom = 'auto';
                   actor.style.transform = 'none';
 
-                  if (bubble) {
-                    bubble.style.left = '0px';
-                    bubble.style.right = 'auto';
-                    bubble.style.bottom = '112px';
-                  }
-
+                  setBubbleAnchor('normal');
                   setSprite('parachute');
                   actor.classList.add('mascot-parachute-sway');
 
@@ -2257,7 +2304,7 @@
 
           }, 2200);
 
-        }, 850);
+        }, 950);
 
       }, 2800);
 
@@ -2265,19 +2312,18 @@
       // --- ROUTINE 1: ZOOM EN CARRO DEPORTIVO ROJO ---
       currentState = 'car_racing';
       window.closeSpeechBubble(false);
+      setBubbleAnchor('normal');
       setSprite('car');
       actor.classList.remove('mascot-idle-breathe', 'mascot-spring-bounce');
       actor.classList.add('mascot-drive-bob');
 
-      window.showSpeechBubble(0, 'Bip bip, abran paso que voy tarde a la clinica.');
+      window.showSpeechBubble(0, 'Bip bip, abran paso que voy tarde a la clinica en Plaza Palmeras.');
 
-      // Accelerate rapidly across screen from left to off-screen right
       const fullWidth = window.innerWidth + 180;
       container.style.transition = 'left 1.6s cubic-bezier(0.4, 0, 0.2, 1)';
       container.style.left = fullWidth + 'px';
 
       setTimeout(() => {
-        // Return driving backwards from right to left
         actor.style.transform = 'scaleX(-1)';
         container.style.transition = 'none';
         container.style.left = (window.innerWidth + 100) + 'px';
@@ -2303,25 +2349,30 @@
       }, 1650);
 
     } else {
-      // --- ROUTINE 2: ESCALAR LA PARED VERTICAL Y SALTO EN PARACAÍDAS ---
+      // --- ROUTINE 2: CORRER A LA DERECHA, ESCALAR PARED ERGUIDO Y SALTO EN PARACAÍDAS ---
       currentState = 'wall_climbing';
       window.closeSpeechBubble(false);
+      setBubbleAnchor('normal');
       setSprite('run');
       actor.classList.remove('mascot-idle-breathe', 'mascot-spring-bounce');
       actor.classList.add('mascot-sprint-lean');
+      actor.style.transform = 'none'; // natural right-facing run!
 
-      // Run towards left border
-      container.style.transition = 'left 0.7s ease-in';
-      container.style.left = '4px';
+      // Sprint towards the right wall
+      const rightWallX = Math.max(window.innerWidth - 130, 280);
+      container.style.transition = 'left 1.1s cubic-bezier(0.4, 0, 0.2, 1)';
+      container.style.left = rightWallX + 'px';
 
       setTimeout(() => {
-        // Turn vertically and climb wall up to the ceiling
+        // Arrives at right wall -> climbs straight up to the ceiling
         actor.classList.remove('mascot-sprint-lean');
         actor.classList.add('mascot-wall-climb');
+        actor.style.transform = 'none'; // upright climber!
 
+        // Position bubble below him so it NEVER clips off the top
+        setBubbleAnchor('bottom');
         window.showSpeechBubble(0, 'Escalando hasta arriba de tu pantalla...');
 
-        const climbTop = 80;
         container.style.transition = 'bottom 2.4s cubic-bezier(0.4, 0, 0.2, 1)';
         container.style.bottom = (window.innerHeight - 150) + 'px';
 
@@ -2329,16 +2380,15 @@
           actor.classList.remove('mascot-wall-climb');
           actor.style.transform = 'none';
 
-          // Sky drop from ceiling with parachute
+          // Sky drop with parachute back to home corner
           currentState = 'falling';
           setSprite('parachute');
           actor.classList.add('mascot-parachute-sway');
 
           const restingBottom = 24;
-          const groundY = window.innerHeight - 105 - restingBottom;
-
-          container.style.transition = 'bottom 2.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+          container.style.transition = 'bottom 2.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), left 2.8s ease-in-out';
           container.style.bottom = restingBottom + 'px';
+          container.style.left = '24px';
 
           setTimeout(() => {
             currentState = 'landing';
@@ -2346,6 +2396,7 @@
 
             setSprite('bounce');
             actor.classList.add('mascot-spring-bounce');
+            setBubbleAnchor('normal');
 
             window.showSpeechBubble(0, 'Aterrizaje perfecto con resorte de alta precision.');
 
@@ -2362,7 +2413,7 @@
 
         }, 2400);
 
-      }, 700);
+      }, 1100);
     }
   }
 

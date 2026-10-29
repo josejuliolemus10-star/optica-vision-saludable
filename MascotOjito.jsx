@@ -273,7 +273,7 @@ export const MascotOjito = ({
           motionState === 'whistling'
             ? { x: [0, 240] }
             : motionState === 'running_to_edge'
-            ? { x: [240, -120], scaleX: -1 }
+            ? { x: [240, typeof window !== 'undefined' ? window.innerWidth + 80 : 800], scaleX: 1 }
             : motionState === 'peeking_left'
             ? { x: -28, scaleX: 1, y: typeof window !== 'undefined' ? -window.innerHeight * 0.65 : -420 }
             : motionState === 'peeking_right'
@@ -281,7 +281,7 @@ export const MascotOjito = ({
             : motionState === 'car_racing'
             ? { x: [-100, typeof window !== 'undefined' ? window.innerWidth + 100 : 900, -100, 0], scaleX: [1, 1, -1, 1] }
             : motionState === 'wall_climbing'
-            ? { x: [0, -10, -10], y: [0, 0, -500], rotate: [0, -90, -90] }
+            ? { x: [0, 200, 200], y: [0, 0, -520], rotate: [0, 0, 0] }
             : motionState === 'falling'
             ? { y: [-600, 0], x: 0, rotate: 0, scaleX: 1 }
             : motionState === 'sprinting'
@@ -311,7 +311,7 @@ export const MascotOjito = ({
               initial={{ opacity: 0, scale: 0.85, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.85, y: 10 }}
-              className="pointer-events-auto absolute bottom-28 left-0 w-64 p-3.5 bg-white border-2 border-slate-900 rounded-2xl shadow-[4px_4px_0px_#0f172a] text-left mb-2 z-20 cursor-default"
+              className={`pointer-events-auto absolute w-64 p-3.5 bg-white border-2 border-slate-900 rounded-2xl shadow-[4px_4px_0px_#0f172a] text-left z-20 cursor-default ${['wall_climbing', 'peeking_left', 'peeking_right'].includes(motionState) ? 'top-28 left-14' : 'bottom-28 left-0'}`}
             >
               <button
                 type="button"
