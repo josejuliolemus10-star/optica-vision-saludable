@@ -1932,6 +1932,10 @@
     if (spriteSad) spriteSad.classList.toggle('hidden', name !== 'sad');
     if (spriteBored) spriteBored.classList.toggle('hidden', name !== 'bored');
     if (spriteCar) spriteCar.classList.toggle('hidden', name !== 'car');
+
+    if (bubble && bubble.style.top === 'auto') {
+      bubble.style.bottom = name === 'parachute' ? '152px' : '112px';
+    }
   }
 
   // Anchor and tail management for speech bubble so text NEVER clips off-screen
