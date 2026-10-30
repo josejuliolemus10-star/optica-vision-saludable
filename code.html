@@ -694,9 +694,9 @@
         <span class="material-symbols-outlined text-[16px] text-sky-600">visibility</span>
         <span>Ver Catálogo</span>
       </a>
-      <a class="btn-emotion-glow inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold text-white bg-gradient-to-r from-sky-500 to-cyan-500 shadow-[0_4px_16px_rgba(14,165,233,0.35)] whitespace-nowrap" href="https://wa.me/50241961630?text=Hola%20Visi%C3%B3n%20Saludable,%20quisiera%20agendar%20mi%20examen%20visual%20gratuito." target="_blank">
-        <span class="material-symbols-outlined text-[16px]">chat</span>
-        <span>Agendar Examen (WhatsApp)</span>
+      <a class="btn-emotion-glow inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-full text-xs font-bold text-white bg-gradient-to-r from-sky-500 to-cyan-500 shadow-[0_4px_16px_rgba(14,165,233,0.35)] whitespace-nowrap" href="https://wa.me/50241961630?text=Hola%20Vision%20Saludable,%20deseo%20agendar%20mi%20cita." target="_blank">
+        <span class="material-symbols-outlined text-[16px]">calendar_month</span>
+        <span>Agendar Cita</span>
       </a>
       <!-- Mobile Menu Button -->
       <button id="mobileMenuBtn" type="button" onclick="toggleMobileMenu()" class="md:hidden w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors" aria-label="Abrir menú">
@@ -745,7 +745,7 @@
 <div class="mt-8 flex flex-wrap justify-center items-center gap-4">
 <a class="btn-emotion-glow group px-8 py-3.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-sky-500 via-cyan-500 to-sky-600 shadow-[0_10px_25px_rgba(14,165,233,0.35)] flex items-center gap-2.5" href="https://wa.me/50241961630?text=Hola%20Visi%C3%B3n%20Saludable,%20quisiera%20agendar%20mi%20examen%20visual%20gratuito." target="_blank">
 <span class="material-symbols-outlined text-[19px]">chat</span>
-<span class="">Agendar Examen Gratis (WhatsApp)</span>
+<span class="">Agendar Cita</span>
 <span class="material-symbols-outlined text-[17px] group-hover:translate-x-1.5 transition-transform duration-200">arrow_forward</span>
 </a>
 <button type="button" onclick="openVisor3D()" class="px-7 py-3.5 rounded-full text-sm font-semibold text-slate-800 glass-button-light hover:bg-slate-50 shadow-sm flex items-center gap-2 cursor-pointer transition-all active:scale-95">
@@ -1559,19 +1559,43 @@
 </div>
 </section>
 
-<!-- SECTION: UBICACIÓN Y CÓMO LLEGAR (CUADRADO CON BORDES REDONDEADOS Y GLASSMORPHISM) -->
-<section class="py-16 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative" id="ubicacion">
-  <div class="text-center max-w-xl mx-auto mb-8">
+<!-- SECTION: UBICACIÓN Y CÓMO LLEGAR (SELECTOR MULTI-SEDES INTERACTIVO) -->
+<section class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative" id="ubicacion">
+  <div class="text-center max-w-xl mx-auto mb-6">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full clay-pill-light text-xs font-bold text-sky-700 mb-3 border border-sky-100">
       <span class="material-symbols-outlined text-[16px] text-sky-600">pin_drop</span>
-      <span>Nuestra Clínica Óptica</span>
+      <span>Nuestras Clínicas Ópticas</span>
     </div>
-    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Ven por tus Lentes</h2>
-    <p class="text-slate-600 text-sm sm:text-base mt-2">El cliente viene a traerlos personalmente y calibramos tu ajuste al instante. Elige cómo llegar con un solo clic:</p>
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Elige tu Sede Más Cercana</h2>
+    <p class="text-slate-600 text-sm sm:text-base mt-2">Visítanos para tu examen visual computarizado gratis y ajuste de aros al instante. Cambia de sede con un clic:</p>
   </div>
 
-  <!-- Tarjeta Cuadrada Glassmorphism -->
-  <div class="w-full max-w-lg mx-auto aspect-square clay-card-light glass-light rounded-[36px] sm:rounded-[44px] p-6 sm:p-7 border border-white/95 shadow-[0_25px_60px_-15px_rgba(14,165,233,0.2)] flex flex-col justify-between overflow-hidden relative backdrop-blur-2xl">
+  <!-- Selector de Sedes Interactivo (Pills / Botones) -->
+  <div class="max-w-2xl mx-auto mb-6">
+    <div class="flex items-center justify-center gap-2 flex-wrap" id="sedesButtonsBar">
+      <button type="button" onclick="cambiarSede(0)" id="sedeBtn-0" class="sede-pill active px-3.5 py-1.5 rounded-full text-xs font-bold transition-all border border-sky-400 bg-sky-500 text-white shadow-xs">
+        Plaza Palmeras (Escuintla)
+      </button>
+      <button type="button" onclick="cambiarSede(1)" id="sedeBtn-1" class="sede-pill px-3.5 py-1.5 rounded-full text-xs font-bold transition-all border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 shadow-2xs">
+        Zona 9 (Cd. Guatemala)
+      </button>
+      <button type="button" onclick="cambiarSede(2)" id="sedeBtn-2" class="sede-pill px-3.5 py-1.5 rounded-full text-xs font-bold transition-all border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 shadow-2xs">
+        Centro Yaya (Villa Nueva)
+      </button>
+      <button type="button" onclick="cambiarSede(3)" id="sedeBtn-3" class="sede-pill px-3.5 py-1.5 rounded-full text-xs font-bold transition-all border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 shadow-2xs">
+        El Encuentro (San José Pinula)
+      </button>
+      <button type="button" onclick="cambiarSede(4)" id="sedeBtn-4" class="sede-pill px-3.5 py-1.5 rounded-full text-xs font-bold transition-all border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 shadow-2xs">
+        Plaza del Lago (Amatitlán)
+      </button>
+      <button type="button" onclick="cambiarSede(5)" id="sedeBtn-5" class="sede-pill px-3.5 py-1.5 rounded-full text-xs font-bold transition-all border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 shadow-2xs">
+        Utz Ulew Mall (Xela)
+      </button>
+    </div>
+  </div>
+
+  <!-- Tarjeta Dinámica de Ubicación -->
+  <div class="w-full max-w-xl mx-auto clay-card-light glass-light rounded-[36px] sm:rounded-[44px] p-6 sm:p-7 border border-white/95 shadow-[0_25px_60px_-15px_rgba(14,165,233,0.2)] flex flex-col justify-between overflow-hidden relative backdrop-blur-2xl">
     
     <!-- Header de la tarjeta -->
     <div class="flex items-center justify-between pb-3 border-b border-sky-100/80">
@@ -1580,21 +1604,22 @@
           <span class="material-symbols-outlined text-[22px]">location_on</span>
         </div>
         <div>
-          <h3 class="text-base font-bold text-slate-900 leading-tight">Visión Saludable</h3>
-          <p class="text-xs text-slate-500">C.C. Plaza Palmeras, Local #29, Escuintla • Examen Gratis</p>
+          <h3 class="text-base font-bold text-slate-900 leading-tight">Visión Saludable - <span id="sedeNombreTitulo" class="text-sky-600">Escuintla</span></h3>
+          <p id="sedeDireccionText" class="text-xs text-slate-500">C.C. Plaza Palmeras, Local #29, Escuintla • Examen Gratis</p>
         </div>
       </div>
-      <a href="https://wa.me/50241961630?text=Hola%20Visi%C3%B3n%20Saludable,%20quisiera%20consultar%20la%20direcci%C3%B3n%20exacta." target="_blank" class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200 hover:bg-emerald-100 transition-colors flex items-center gap-1 shadow-xs">
+      <a id="sedeWhatsAppHeaderBtn" href="https://wa.me/50241961630?text=Hola%20Vision%20Saludable,%20quisiera%20consultar%20la%20direccion%20en%20Plaza%20Palmeras,%20Escuintla." target="_blank" class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200 hover:bg-emerald-100 transition-colors flex items-center gap-1 shadow-xs">
         <span class="material-symbols-outlined text-[14px]">chat</span>
         <span>4196-1630</span>
       </a>
     </div>
 
-    <!-- Mapa Interactivo Centrado -->
-    <div class="w-full flex-1 my-3 rounded-2xl overflow-hidden border border-sky-100/90 shadow-inner relative bg-slate-100 min-h-[160px]">
+    <!-- Mapa Interactivo Dinámico -->
+    <div class="w-full h-64 sm:h-72 my-3.5 rounded-2xl overflow-hidden border border-sky-100/90 shadow-inner relative bg-slate-100">
       <iframe 
-        title="Ubicación Visión Saludable - Plaza Palmeras Escuintla"
-        class="w-full h-full border-0"
+        id="sedeMapIframe"
+        title="Ubicación Visión Saludable"
+        class="w-full h-full border-0 transition-opacity duration-300"
         src="https://maps.google.com/maps?q=Centro+Comercial+Plaza+Palmeras,+Escuintla,+Guatemala&t=&z=16&ie=UTF8&iwloc=&output=embed" 
         allowfullscreen="" 
         loading="lazy" 
@@ -1606,7 +1631,7 @@
     <div class="pt-2">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
         <!-- Botón Google Maps -->
-        <a href="https://maps.google.com/?q=Centro+Comercial+Plaza+Palmeras+Escuintla+Guatemala" target="_blank" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-bold shadow-xs hover:shadow transition-all group">
+        <a id="sedeMapsLink" href="https://maps.google.com/?q=Centro+Comercial+Plaza+Palmeras+Escuintla+Guatemala" target="_blank" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 text-xs sm:text-sm font-bold shadow-xs hover:shadow transition-all group">
           <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#EA4335"/>
             <circle cx="12" cy="9" r="2.5" fill="#FFFFFF"/>
@@ -1615,15 +1640,15 @@
         </a>
 
         <!-- Botón Waze -->
-        <a href="https://waze.com/ul?q=Plaza%20Palmeras%20Escuintla&navigate=yes" target="_blank" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-[#33ccff] hover:bg-[#29b8e6] text-slate-900 text-xs sm:text-sm font-bold shadow-xs hover:shadow transition-all">
+        <a id="sedeWazeLink" href="https://waze.com/ul?q=Plaza%20Palmeras%20Escuintla&navigate=yes" target="_blank" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-[#33ccff] hover:bg-[#29b8e6] text-slate-900 text-xs sm:text-sm font-bold shadow-xs hover:shadow transition-all">
           <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12.003 2c-5.523 0-10 4.477-10 10 0 2.52 1.028 4.8 2.688 6.476L3.5 22l3.856-1.077c1.406.697 2.986 1.077 4.647 1.077 5.523 0 10-4.477 10-10s-4.477-10-10-10zm-3 8a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm6 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-3 7c-2.03 0-3.5-1.5-3.5-1.5a.75.75 0 0 1 1.06-1.06s1.08 1.06 2.44 1.06 2.44-1.06 2.44-1.06a.75.75 0 1 1 1.06 1.06S14.033 17 12.003 17z"/>
           </svg>
           <span>Abrir con Waze</span>
         </a>
       </div>
-      <p class="text-center text-[11px] text-slate-500 mt-2 font-medium">
-        ¿Deseas confirmar la ruta? Escríbenos al WhatsApp: <strong class="text-sky-600 font-bold">4196-1630</strong> (Local #29, Plaza Palmeras, Escuintla)
+      <p id="sedeConfirmRutaText" class="text-center text-[11px] text-slate-500 mt-2.5 font-medium">
+        ¿Deseas confirmar la ruta? Escríbenos al WhatsApp: <strong class="text-sky-600 font-bold">4196-1630</strong> (Atención personalizada)
       </p>
     </div>
 
@@ -2745,6 +2770,91 @@
   });
 
 })();
+  // =========================================================================
+  // SISTEMA DINÁMICO MULTI-SEDES (Visión Saludable Guatemala)
+  // =========================================================================
+  const listaSedes = [
+    {
+      nombre: 'Escuintla',
+      direccion: 'C.C. Plaza Palmeras, Local #29, Escuintla • Examen Gratis',
+      embed: 'https://maps.google.com/maps?q=Centro+Comercial+Plaza+Palmeras,+Escuintla,+Guatemala&t=&z=16&ie=UTF8&iwloc=&output=embed',
+      maps: 'https://maps.google.com/?q=Centro+Comercial+Plaza+Palmeras+Escuintla+Guatemala',
+      waze: 'https://waze.com/ul?q=Plaza%20Palmeras%20Escuintla&navigate=yes',
+      waText: 'Hola Vision Saludable, deseo informacion y cita para la sede en Plaza Palmeras, Escuintla.'
+    },
+    {
+      nombre: 'Zona 9 (Cd. Guatemala)',
+      direccion: 'Edificio Zona Médica, Zona 9, Ciudad de Guatemala • Examen Gratis',
+      embed: 'https://maps.google.com/maps?q=Edificio+Zona+Medica,+Zona+9,+Guatemala&t=&z=16&ie=UTF8&iwloc=&output=embed',
+      maps: 'https://maps.google.com/?q=Edificio+Zona+Medica+Zona+9+Guatemala',
+      waze: 'https://waze.com/ul?q=Edificio%20Zona%20Medica%20Zona%209&navigate=yes',
+      waText: 'Hola Vision Saludable, deseo informacion y cita para la sede en Zona 9 Edificio Zona Medica.'
+    },
+    {
+      nombre: 'Villa Nueva',
+      direccion: 'C.C. Centro Yaya, Calle Real, Villa Nueva • Examen Gratis',
+      embed: 'https://maps.google.com/maps?q=Centro+Yaya,+Villa+Nueva,+Guatemala&t=&z=16&ie=UTF8&iwloc=&output=embed',
+      maps: 'https://maps.google.com/?q=Centro+Comercial+Centro+Yaya+Villa+Nueva+Guatemala',
+      waze: 'https://waze.com/ul?q=Centro%20Yaya%20Villa%20Nueva&navigate=yes',
+      waText: 'Hola Vision Saludable, deseo informacion y cita para la sede en Centro Yaya Villa Nueva.'
+    },
+    {
+      nombre: 'San José Pinula',
+      direccion: 'C.C. El Encuentro, San José Pinula • Examen Gratis',
+      embed: 'https://maps.google.com/maps?q=El+Encuentro+San+Jose+Pinula,+Guatemala&t=&z=16&ie=UTF8&iwloc=&output=embed',
+      maps: 'https://maps.google.com/?q=Centro+Comercial+El+Encuentro+San+Jose+Pinula+Guatemala',
+      waze: 'https://waze.com/ul?q=El%20Encuentro%20San%20Jose%20Pinula&navigate=yes',
+      waText: 'Hola Vision Saludable, deseo informacion y cita para la sede en El Encuentro San Jose Pinula.'
+    },
+    {
+      nombre: 'Amatitlán',
+      direccion: 'C.C. Plaza del Lago, Amatitlán • Examen Gratis',
+      embed: 'https://maps.google.com/maps?q=Plaza+del+Lago,+Amatitlan,+Guatemala&t=&z=16&ie=UTF8&iwloc=&output=embed',
+      maps: 'https://maps.google.com/?q=Centro+Comercial+Plaza+del+Lago+Amatitlan+Guatemala',
+      waze: 'https://waze.com/ul?q=Plaza%20del%20Lago%20Amatitlan&navigate=yes',
+      waText: 'Hola Vision Saludable, deseo informacion y cita para la sede en Plaza del Lago Amatitlan.'
+    },
+    {
+      nombre: 'Quetzaltenango (Xela)',
+      direccion: 'C.C. Utz Ulew Mall, Quetzaltenango • Examen Gratis',
+      embed: 'https://maps.google.com/maps?q=Utz+Ulew+Mall,+Quetzaltenango,+Guatemala&t=&z=16&ie=UTF8&iwloc=&output=embed',
+      maps: 'https://maps.google.com/?q=Utz+Ulew+Mall+Quetzaltenango+Guatemala',
+      waze: 'https://waze.com/ul?q=Utz%20Ulew%20Mall%20Quetzaltenango&navigate=yes',
+      waText: 'Hola Vision Saludable, deseo informacion y cita para la sede en Utz Ulew Mall Quetzaltenango.'
+    }
+  ];
+
+  window.cambiarSede = function(index) {
+    const sede = listaSedes[index];
+    if (!sede) return;
+
+    document.querySelectorAll('.sede-pill').forEach((btn, i) => {
+      if (i === index) {
+        btn.className = 'sede-pill active px-3.5 py-1.5 rounded-full text-xs font-bold transition-all border border-sky-400 bg-sky-500 text-white shadow-xs';
+      } else {
+        btn.className = 'sede-pill px-3.5 py-1.5 rounded-full text-xs font-bold transition-all border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 shadow-2xs';
+      }
+    });
+
+    const iframe = document.getElementById('sedeMapIframe');
+    if (iframe) iframe.src = sede.embed;
+
+    const titulo = document.getElementById('sedeNombreTitulo');
+    if (titulo) titulo.textContent = sede.nombre;
+
+    const dir = document.getElementById('sedeDireccionText');
+    if (dir) dir.textContent = sede.direccion;
+
+    const mapsBtn = document.getElementById('sedeMapsLink');
+    if (mapsBtn) mapsBtn.href = sede.maps;
+
+    const wazeBtn = document.getElementById('sedeWazeLink');
+    if (wazeBtn) wazeBtn.href = sede.waze;
+
+    const waBtn = document.getElementById('sedeWhatsAppHeaderBtn');
+    if (waBtn) waBtn.href = `https://wa.me/50241961630?text=${encodeURIComponent(sede.waText)}`;
+  };
+
 </script>
 
 <!-- Floating WhatsApp Action Button -->
