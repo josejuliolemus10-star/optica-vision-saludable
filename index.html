@@ -1753,9 +1753,9 @@
 <div id="mascotRootContainer" class="fixed bottom-6 left-6 z-50 pointer-events-none select-none flex flex-col items-center" style="width: 125px;">
 
   <!-- Interactive Speech Bubble (pointer-events-auto, Sin Emojis) -->
-  <div id="mascotSpeechBubble" class="pointer-events-auto absolute bottom-28 left-0 w-64 p-3.5 bg-white border-2 border-slate-900 rounded-2xl shadow-[4px_4px_0px_#0f172a] text-left mb-2 z-20 transition-all duration-300 opacity-100 scale-100 origin-bottom-left cursor-default">
+  <div id="mascotSpeechBubble" class="pointer-events-auto absolute bottom-24 left-0 w-48 sm:w-52 p-2.5 sm:p-3 bg-white border-2 border-slate-900 rounded-xl shadow-[3px_3px_0px_#0f172a] text-left mb-1.5 z-20 transition-all duration-300 opacity-100 scale-100 origin-bottom-left cursor-default">
     <!-- Close button -->
-    <button type="button" onclick="closeSpeechBubble(true)" class="absolute -top-2 -right-2 w-6 h-6 bg-rose-500 hover:bg-rose-600 text-white font-black text-xs rounded-full flex items-center justify-center border-2 border-slate-900 shadow-sm transition-transform active:scale-90" title="Cerrar">✕</button>
+    <button type="button" onclick="closeSpeechBubble(true)" class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-rose-500 hover:bg-rose-600 text-white font-black text-[10px] rounded-full flex items-center justify-center border border-slate-900 shadow-xs transition-transform active:scale-90" title="Cerrar">✕</button>
 
     <!-- Bubble Pointer (Bottom Tail) -->
     <div id="bubbleTailBottom" class="absolute -bottom-2.5 left-6 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[10px] border-t-slate-900"></div>
@@ -1766,9 +1766,9 @@
     <div id="bubbleTailTopInner" class="hidden absolute -top-1.5 left-6 w-0 h-0 border-l-[7px] border-l-transparent border-r-[7px] border-r-transparent border-b-[9px] border-b-white"></div>
 
     <div>
-      <p id="mascotBubbleText" class="text-xs font-black text-slate-800 leading-snug">Tu examen de la vista es 100% gratis en Vision Saludable.</p>
-      <div class="mt-2.5 flex items-center gap-1.5">
-        <button id="mascotBubbleCtaBtn" type="button" onclick="handleMascotCtaClick()" class="px-2.5 py-1 bg-sky-500 hover:bg-sky-600 active:bg-sky-700 text-white font-extrabold text-[11px] rounded-lg border border-slate-900 shadow-[2px_2px_0px_#0f172a] transition-all">
+      <p id="mascotBubbleText" class="text-[11px] font-extrabold text-slate-800 leading-snug">Tu examen de la vista es 100% gratis en Vision Saludable.</p>
+      <div class="mt-2 flex items-center gap-1">
+        <button id="mascotBubbleCtaBtn" type="button" onclick="handleMascotCtaClick()" class="px-2 py-0.5 bg-sky-500 hover:bg-sky-600 active:bg-sky-700 text-white font-extrabold text-[10px] rounded-md border border-slate-900 shadow-[1.5px_1.5px_0px_#0f172a] transition-all">
           <span id="mascotBubbleCtaText">Agendar por WhatsApp</span>
         </button>
       </div>
@@ -1779,7 +1779,7 @@
   <div id="mascotActor" class="relative flex flex-col items-center mascot-idle-breathe">
     
     <!-- INTERACTIVE TRIGGER FOR CLICK, DRAG & FLING -->
-    <div id="mascotInteractiveTrigger" class="pointer-events-auto cursor-grab active:cursor-grabbing relative select-none flex items-end justify-center" style="width: 120px; height: 95px;" title="Ojito - Vision Saludable">
+    <div id="mascotInteractiveTrigger" onclick="handleOjitoDirectClick(event)" class="pointer-events-auto cursor-grab active:cursor-grabbing relative select-none flex items-end justify-center" style="width: 120px; height: 95px;" title="Ojito - Clic para abrir Asistente">
       
       <!-- 1. SPRITE IDLE (Quieto saludando, sonriendo) -->
       <img id="spriteIdle" src="ojito-idle.png" alt="Ojito Quieto" class="mascot-sprite absolute bottom-0 left-1/2 -translate-x-1/2 w-[82px] h-auto object-contain pointer-events-none select-none transition-transform" />
@@ -1831,7 +1831,7 @@
 </div>
 
 <!-- MODAL ASISTENTE VIRTUAL DE OJITO -->
-<div id="avatarChatModal" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:justify-start p-4 sm:p-8 bg-slate-950/40 backdrop-blur-xs transition-all duration-300 opacity-0 pointer-events-none" onclick="closeAvatarModal()">
+<div id="avatarChatModal" class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center sm:justify-start p-4 sm:p-8 bg-slate-950/40 backdrop-blur-xs transition-all duration-300 opacity-0 pointer-events-none" onclick="closeAvatarModal()">
   <div class="w-full max-w-sm bg-white rounded-3xl border-2 border-slate-900 shadow-[8px_8px_0px_#0f172a] overflow-hidden transform transition-all duration-300 scale-95 p-5 text-slate-800" onclick="event.stopPropagation()">
     
     <!-- Modal Header -->
@@ -1929,7 +1929,7 @@
     if (spriteCar) spriteCar.classList.toggle('hidden', name !== 'car');
 
     if (bubble && bubble.style.top === 'auto') {
-      bubble.style.bottom = name === 'parachute' ? '152px' : '112px';
+      bubble.style.bottom = name === 'parachute' ? '142px' : '102px';
     }
   }
 
@@ -1974,7 +1974,7 @@
     } else {
       // Normal: bubble sits above Ojito at bottom corner
       bubble.style.top = 'auto';
-      bubble.style.bottom = '112px';
+      bubble.style.bottom = '102px';
       bubble.style.left = '0px';
       bubble.style.right = 'auto';
       bubble.classList.add('origin-bottom-left');
@@ -2154,10 +2154,13 @@
 
   window.openOjitoModal = function() {
     window.closeSpeechBubble(false);
-    if (!modal) return;
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    modal.classList.add('opacity-100', 'pointer-events-auto');
-    const card = modal.querySelector('.transform');
+    const m = document.getElementById('avatarChatModal');
+    if (!m) return;
+    m.classList.remove('opacity-0', 'pointer-events-none');
+    m.classList.add('opacity-100', 'pointer-events-auto');
+    m.style.opacity = '1';
+    m.style.pointerEvents = 'auto';
+    const card = m.querySelector('.transform');
     if (card) {
       card.classList.remove('scale-95');
       card.classList.add('scale-100');
@@ -2165,10 +2168,13 @@
   };
 
   window.closeAvatarModal = function() {
-    if (!modal) return;
-    modal.classList.add('opacity-0', 'pointer-events-none');
-    modal.classList.remove('opacity-100', 'pointer-events-auto');
-    const card = modal.querySelector('.transform');
+    const m = document.getElementById('avatarChatModal');
+    if (!m) return;
+    m.classList.add('opacity-0', 'pointer-events-none');
+    m.classList.remove('opacity-100', 'pointer-events-auto');
+    m.style.opacity = '0';
+    m.style.pointerEvents = 'none';
+    const card = m.querySelector('.transform');
     if (card) {
       card.classList.add('scale-95');
       card.classList.remove('scale-100');
@@ -2450,6 +2456,7 @@
   // 2. INTERACTION ENGINE: DRAG, STRUGGLE, FLING, POKE, SPRINT, DIZZY & ANGRY
   // =========================================================================
   let isDragging = false;
+  let hasDragged = false;
   let startX = 0, startY = 0;
   let elemStartX = 0, elemStartY = 0;
   let prevX = 0, prevY = 0;
@@ -2503,6 +2510,7 @@
 
     if (!isDragging && (Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5)) {
       isDragging = true;
+      hasDragged = true;
       currentState = 'dragged';
       window.closeSpeechBubble(false);
       clearTimeout(theatricalTimer);
@@ -2680,7 +2688,7 @@
       }
 
     } else {
-      // --- CLIC INTERACTIONS (POKE / SPRINT / MODAL) ---
+      // --- CLIC INTERACTIONS (ABRIR PANEL AL CLIC / DOBLE CLIC CORRER) ---
       clickCount++;
       clearTimeout(clickResetTimer);
 
@@ -2690,28 +2698,45 @@
       } else {
         clickResetTimer = setTimeout(() => {
           clickCount = 0;
-          executePokeReaction();
-        }, 280);
+          executeClickOpenPanel();
+        }, 180);
       }
     }
   }
 
-  // --- INTERACTION: PICARLE EL OJO / COSQUILLAS ---
-  function executePokeReaction() {
-    if (currentState !== 'idle') return;
+  let lastDirectClickTime = 0;
+  window.handleOjitoDirectClick = function(e) {
+    if (isDragging || hasDragged) return;
+    const now = performance.now();
+    if (now - lastDirectClickTime < 350) return;
+    lastDirectClickTime = now;
+    executeClickOpenPanel();
+  };
 
+  // --- INTERACTION: CLIC EN OJITO ABRE EL PANEL ASISTENTE DIRECTAMENTE ---
+  function executeClickOpenPanel() {
+    clearTimeout(theatricalTimer);
+    clearTimeout(boredTimer);
+    clearTimeout(inactivityTimer);
+
+    // Cancelar cualquier movimiento o transicion previa
+    container.style.transition = 'none';
+
+    // Saludo animado con rebote
     setSprite('bounce');
-    actor.classList.remove('mascot-idle-breathe');
+    actor.classList.remove('mascot-idle-breathe', 'mascot-parachute-sway', 'mascot-spring-bounce', 'mascot-walk-bob', 'mascot-drive-bob', 'mascot-wall-climb');
     actor.classList.add('mascot-spring-bounce');
 
-    window.showSpeechBubble(0, 'Me haces cosquillas en la cornea.');
+    // ABRIR EL PANEL DE ASISTENTE DE INMEDIATO
+    window.openOjitoModal();
 
     setTimeout(() => {
       actor.classList.remove('mascot-spring-bounce');
       actor.classList.add('mascot-idle-breathe');
       setSprite('idle');
-      setTimeout(window.openOjitoModal, 400);
-    }, 750);
+      currentState = 'idle';
+      resetInactivityTimer();
+    }, 380);
   }
 
   // --- INTERACTION: ASUSTARLO Y SALIR CORRIENDO ---
